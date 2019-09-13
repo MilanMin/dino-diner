@@ -2,7 +2,7 @@
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class SteakosaursBurger
+    public class SteakosaurusBurger
     {
         private bool bun = true;
         private bool pickle = true;
@@ -25,7 +25,7 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
-        public SteakosaursBurger()
+        public SteakosaurusBurger()
         {
             this.Price = 5.15;
             this.Calories = 621;
