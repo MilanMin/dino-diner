@@ -5,14 +5,14 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
 
-    public class Fryceritops : Side
+    public class Triceritots : Side
     {
         
 
-        public Fryceritops()
+        public Triceritots()
         {
             this.Price = .99;
-            this.Calories = 222;
+            this.Calories = 352;
             this.Ingredients.Add("Potatoes");
             this.Ingredients.Add("Salt");
             this.Ingredients.Add("Vegetable Oil");
