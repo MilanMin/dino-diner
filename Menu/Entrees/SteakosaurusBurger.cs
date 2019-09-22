@@ -2,6 +2,9 @@
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Class for the SteakosaurusBurger.
+    /// </summary>
     public class SteakosaurusBurger : Entree
     {
         private bool bun = true;
@@ -9,6 +12,9 @@ namespace DinoDiner.Menu.Entrees
         private bool ketchup = true;
         private bool mustard = true;
 
+        /// <summary>
+        /// Provides a list of ingredients for the SteakosaurusBurger.
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -22,25 +28,42 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs a SteakosaurusBurger.
+        /// </summary>
         public SteakosaurusBurger()
         {
             this.Price = 5.15;
             this.Calories = 621;
         }
 
+        /// <summary>
+        /// Holds the bun.
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
 
+        /// <summary>
+        /// Holds the pickle.
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
+
+        /// <summary>
+        /// Holds the ketchup.
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
+
+        /// <summary>
+        /// Holds the mustard.
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Base class for entrees.
+    /// </summary>
     public abstract class Entree
     {
         /// <summary>

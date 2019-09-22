@@ -2,13 +2,18 @@
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Class for the VelociWrap.
+    /// </summary>
     public class VelociWrap : Entree
     {
         private bool dressing = true;
         private bool lettuce = true;
         private bool cheese = true;
 
-
+        /// <summary>
+        /// Provides a list of ingredients for the VelociWrap.
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -22,21 +27,34 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs a VelociWrap.
+        /// </summary>
         public VelociWrap()
         {
             this.Price = 6.86;
             this.Calories = 356;
         }
 
+        /// <summary>
+        /// Holds the dressing.
+        /// </summary>
         public void HoldDressing()
         {
             this.dressing = false;
         }
 
+        /// <summary>
+        /// Holds the lettuce.
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
+
+        /// <summary>
+        /// Holds the cheese.
+        /// </summary>
         public void HoldCheese()
         {
             this.cheese = false;

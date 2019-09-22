@@ -4,9 +4,17 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-
+    /// <summary>
+    /// Class for Fryceritops.
+    /// </summary>
     public class Fryceritops : Side
     {
+
+        protected Size size = Size.Small;
+
+        /// <summary>
+        /// Provides a list of ingredients for Fryceritops.
+        /// </summary>
         public override List<string> Ingredients {
             get
             {
@@ -18,15 +26,18 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// Gets or Sets the Size.
+        /// </summary>
         public override Size Size{
             get
             {
-                return this.Size;
+                return size;
             }
             set
             {
-                this.Size = value;
-                switch (value)
+                size = value;
+                switch (size)
                 {
                     case Size.Small:
                         this.Price = .99;
@@ -44,6 +55,9 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// Constructs Fryceritops.
+        /// </summary>
         public Fryceritops()
         {
             this.Size = Size.Small;

@@ -2,6 +2,9 @@
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Class for the TRexKingBurger.
+    /// </summary>
     public class TRexKingBurger : Entree
     {
         private bool bun = true;
@@ -13,7 +16,9 @@ namespace DinoDiner.Menu.Entrees
         private bool mustard = true;
         private bool mayo = true;
 
-
+        /// <summary>
+        /// Provides a list of ingredients for the TRexKingBurger.
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -33,41 +38,74 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs a TRexKingBurger.
+        /// </summary>
         public TRexKingBurger()
         {
             this.Price = 8.45;
             this.Calories = 728;
         }
 
+        /// <summary>
+        /// Holds the bun.
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
 
+        /// <summary>
+        /// Holds the tomato.
+        /// </summary>
         public void HoldTomato()
         {
             this.tomato = false;
         }
+
+        /// <summary>
+        /// Holds the onion.
+        /// </summary>
         public void HoldOnion()
         {
             this.onion = false;
         }
+
+        /// <summary>
+        /// Holds the pickle.
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
+
+        /// <summary>
+        /// Holds the ketchup.
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
+
+        /// <summary>
+        /// Holds the mustard.
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
         }
+
+        /// <summary>
+        /// Holds the mayo.
+        /// </summary>
         public void HoldMayo()
         {
             this.mayo = false;
         }
+
+        /// <summary>
+        /// Holds the lettuce.
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
