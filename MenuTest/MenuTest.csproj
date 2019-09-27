@@ -7,13 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Entrees\BrontowurstTest.cs" />
     <Compile Remove="Entrees\DinoNuggetsTest.cs" />
     <Compile Remove="Entrees\PrehistoricPBJTest.cs" />
     <Compile Remove="Entrees\PterodactylWingsTest.cs" />
     <Compile Remove="Entrees\SteakosaurusBurgerTest.cs" />
     <Compile Remove="Entrees\TRexKingBurgerTest.cs" />
     <Compile Remove="Entrees\VelociWrapTest.cs" />
+    <Compile Remove="Sides\FryceritopsTest.cs" />
+    <Compile Remove="Sides\MeteorMacAndCheeseTest.cs" />
+    <Compile Remove="Sides\MezzorellaSticksTest.cs" />
+    <Compile Remove="Sides\TriceritotsTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entrees\" />
+    <Folder Include="Sides\" />
   </ItemGroup>
 
 </Project>

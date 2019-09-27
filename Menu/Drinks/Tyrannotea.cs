@@ -4,11 +4,13 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Sodasaurus : Drink
+    public class Tyrannotea : Drink
     {
-        public SodasaurusFlavor Flavor;
 
-        public Sodasaurus()
+        public bool Sweet { get; set; } = false;
+        public bool Lemon { get; set; } = false;
+
+        public Tyrannotea()
         {
             Size = Size.Small;
         }
@@ -24,19 +26,24 @@ namespace DinoDiner.Menu.Drinks
             set
             {
                 size = value;
+                uint multiplier = 1;
+                if (Sweet)
+                {
+                    multiplier = 2;
+                }
                 switch (value)
                 {
                     case Size.Small:
-                        Price = 1.50;
-                        Calories = 112;
+                        Price = .99;
+                        Calories = 8 * multiplier;
                         break;
                     case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
+                        Price = 1.49;
+                        Calories = 16 * multiplier;
                         break;
                     case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
+                        Price = 1.99;
+                        Calories = 32 * multiplier;
                         break;
                 }
             }
@@ -48,10 +55,16 @@ namespace DinoDiner.Menu.Drinks
             {
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Water");
-                ingredients.Add("Natural Flavors");
-                ingredients.Add("Cane Sugar");
+                ingredients.Add("Tea");
+                if (Lemon) ingredients.Add("Lemon");
+                if (Sweet) ingredients.Add("Cane Sugar");
                 return ingredients;
             }
+        }
+
+        public void AddLemon()
+        {
+            Lemon = true;
         }
     }
 }
