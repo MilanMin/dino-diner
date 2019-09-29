@@ -4,10 +4,19 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// Class for the drink water.
+    /// </summary>
     public class Water : Drink
     {
+        /// <summary>
+        /// Variable that holds whether or not a lemon comes with the drink.
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
+        /// <summary>
+        /// Constructor for the drink water.
+        /// </summary>
         public Water()
         {
             Size = Size.Small;
@@ -15,7 +24,14 @@ namespace DinoDiner.Menu.Drinks
             Calories = 0;
         }
 
-        public Size size;
+        /// <summary>
+        /// Variable that holds the size of the drink.
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Contains the get and set accessor for the drink water.
+        /// </summary>
         public override Size Size
         {
             get
@@ -29,18 +45,23 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Contains the get accessor for the list of ingredients in the drink.
+        /// </summary>
         public override List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Water");
-                ingredients.Add("Tea");
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
         }
 
+        /// <summary>
+        /// Method that adds a lemon to the drink.
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;

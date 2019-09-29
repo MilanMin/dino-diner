@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Contains the enum for size.
+    /// </summary>
     public enum Size
     {
         Small,
