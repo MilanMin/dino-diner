@@ -5,21 +5,27 @@ using System.Text;
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// Class for the Sodasaurus drink.
+    /// Contains the class for the drink JurrassicJava.
     /// </summary>
-    public class Sodasaurus : Drink
+    public class JurrasicJava : Drink
     {
         /// <summary>
-        /// Contains the flavor for the sodasaurus drink.
+        /// Variable for whether or not there should be room for cream in the drink.
         /// </summary>
-        public SodasaurusFlavor Flavor;
+        public bool RoomForCream { get; set; } = false;
 
         /// <summary>
-        /// Creates a sodasaurus.
+        /// Variable for whether or not the drink should be decaf.
         /// </summary>
-        public Sodasaurus()
+        public bool Decaf { get; set; } = false;
+
+        /// <summary>
+        /// Creates a jurrasic java drink.
+        /// </summary>
+        public JurrasicJava()
         {
             Size = Size.Small;
+            Ice = false;
         }
 
         /// <summary>
@@ -43,16 +49,16 @@ namespace DinoDiner.Menu.Drinks
                 switch (value)
                 {
                     case Size.Small:
-                        Price = 1.50;
-                        Calories = 112;
+                        Price = .59;
+                        Calories = 2;
                         break;
                     case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
+                        Price = .99;
+                        Calories = 4;
                         break;
                     case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
+                        Price = 1.49;
+                        Calories = 8;
                         break;
                 }
             }
@@ -67,10 +73,25 @@ namespace DinoDiner.Menu.Drinks
             {
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Water");
-                ingredients.Add("Natural Flavors");
-                ingredients.Add("Cane Sugar");
+                ingredients.Add("Coffee");
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// Method that leaves room for cream when called.
+        /// </summary>
+        public void LeaveRoomForCream()
+        {
+            RoomForCream = true;
+        }
+
+        /// <summary>
+        /// Method that adds ice to the drink when called.
+        /// </summary>
+        public void AddIce()
+        {
+            Ice = true;
         }
     }
 }
