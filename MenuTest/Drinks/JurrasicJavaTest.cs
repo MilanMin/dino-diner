@@ -14,21 +14,21 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDefaultPrice()
         {
             JurrasicJava java = new JurrasicJava();
-            Assert.Equal(1.50, java.Price, 2);
+            Assert.Equal(.59, java.Price, 2);
         }
 
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
             JurrasicJava java = new JurrasicJava();
-            Assert.Equal<uint>(112, java.Calories);
+            Assert.Equal<uint>(2, java.Calories);
         }
 
         [Fact]
         public void ShouldHaveCorrectDefaultIce()
         {
             JurrasicJava java = new JurrasicJava();
-            Assert.Equal(true, java.Ice);
+            Assert.Equal(false, java.Ice);
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDefaultSpaceForCream()
         {
             JurrasicJava java = new JurrasicJava();
-            Assert.Equal<Size>(Size.Small, java.Size);
+            Assert.Equal(false, java.RoomForCream);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace MenuTest.Drinks
             JurrasicJava java = new JurrasicJava();
             java.Size = Size.Medium;
             java.Size = Size.Small;
-            Assert.Equal(1.50, java.Price, 2);
+            Assert.Equal(.59, java.Price, 2);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace MenuTest.Drinks
             JurrasicJava java = new JurrasicJava();
             java.Size = Size.Medium;
             java.Size = Size.Small;
-            Assert.Equal<uint>(112, java.Calories);
+            Assert.Equal<uint>(2, java.Calories);
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MenuTest.Drinks
         {
             JurrasicJava java = new JurrasicJava();
             java.Size = Size.Medium;
-            Assert.Equal(2.00, java.Price, 2);
+            Assert.Equal(.99, java.Price, 2);
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace MenuTest.Drinks
         {
             JurrasicJava java = new JurrasicJava();
             java.Size = Size.Medium;
-            Assert.Equal<uint>(156, java.Calories);
+            Assert.Equal<uint>(4, java.Calories);
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace MenuTest.Drinks
         {
             JurrasicJava java = new JurrasicJava();
             java.Size = Size.Large;
-            Assert.Equal(2.50, java.Price, 2);
+            Assert.Equal(1.49, java.Price, 2);
         }
 
         [Fact]
@@ -92,23 +92,23 @@ namespace MenuTest.Drinks
         {
             JurrasicJava java = new JurrasicJava();
             java.Size = Size.Large;
-            Assert.Equal<uint>(208, java.Calories);
+            Assert.Equal<uint>(8, java.Calories);
         }
 
         [Fact]
         public void ShouldAddIce()
         {
             JurrasicJava java = new JurrasicJava();
-            java.HoldIce();
-            Assert.Equal(false, java.Ice);
+            java.AddIce();
+            Assert.Equal(true, java.Ice);
         }
 
         [Fact]
-        public void ShouldLeaveSpaceForCream()
+        public void ShouldLeaveRoomForCream()
         {
             JurrasicJava java = new JurrasicJava();
-            java.HoldIce();
-            Assert.Equal(false, java.Ice);
+            java.LeaveRoomForCream();
+            Assert.Equal(true, java.RoomForCream);
         }
 
         [Fact]
@@ -117,9 +117,8 @@ namespace MenuTest.Drinks
             JurrasicJava java = new JurrasicJava();
             List<string> ingredients = java.Ingredients;
             Assert.Contains<string>("Water", ingredients);
-            Assert.Contains<string>("Natural Flavors", ingredients);
-            Assert.Contains<string>("Cane Sugar", ingredients);
-            Assert.Equal<int>(3, ingredients.Count);
+            Assert.Contains<string>("Coffee", ingredients);
+            Assert.Equal<int>(2, ingredients.Count);
         }
     }
 }

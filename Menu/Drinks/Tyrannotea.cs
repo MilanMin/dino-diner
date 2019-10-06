@@ -4,18 +4,38 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// Contains the class for the drink Tyrannotea.
+    /// </summary>
     public class Tyrannotea : Drink
     {
 
+        /// <summary>
+        /// Contains the variable of whether or not the drink is sweet.
+        /// </summary>
         public bool Sweet { get; set; } = false;
+
+        /// <summary>
+        /// Contains the variable of whether or not the drink has a lemon.
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
+        /// <summary>
+        /// Constructor for Tyrannotea.
+        /// </summary>
         public Tyrannotea()
         {
             Size = Size.Small;
         }
 
-        public Size size;
+        /// <summary>
+        /// Contains the size of the drink.
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Contains the get and set acessor for the drink's size.
+        /// </summary>
         public override Size Size
         {
             get
@@ -49,6 +69,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Contains the get accessor for the list of the drink's ingredients.
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -62,6 +85,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Method that adds a lemon to the drink.
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;

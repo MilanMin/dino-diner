@@ -4,16 +4,32 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// Class for the Sodasaurus drink.
+    /// </summary>
     public class Sodasaurus : Drink
     {
+        /// <summary>
+        /// Contains the flavor for the sodasaurus drink.
+        /// </summary>
         public SodasaurusFlavor Flavor;
 
+        /// <summary>
+        /// Creates a sodasaurus.
+        /// </summary>
         public Sodasaurus()
         {
             Size = Size.Small;
         }
 
-        public Size size;
+        /// <summary>
+        /// Contains the size of the drink.
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Contains the get and set accessor for the size of the drink.
+        /// </summary>
         public override Size Size
         {
             get
@@ -42,6 +58,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Contains the get accessor for the ingredients list of the drink.
+        /// </summary>
         public override List<string> Ingredients
         {
             get
