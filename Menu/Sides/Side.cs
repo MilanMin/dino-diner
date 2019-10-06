@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-
-    public abstract class Side
+    /// <summary>
+    /// Contains the base class for all sides.
+    /// </summary>
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

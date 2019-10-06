@@ -1,13 +1,19 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for a PrehistoricPBJ.
     /// </summary>
     public class PrehistoricPBJ : Entree
     {
+        /// <summary>
+        /// Holds whether or not there should be peanut butter.
+        /// </summary>
         private bool peanutButter = true;
+        /// <summary>
+        /// Holds whether or not there should be jelly.
+        /// </summary>
         private bool jelly = true;
 
         /// <summary>
@@ -47,6 +53,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }

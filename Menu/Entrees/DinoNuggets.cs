@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for DinoNuggets.
     /// </summary>
     public class DinoNuggets : Entree
     {
-
+        /// <summary>
+        /// Holds the amount of nuggets.
+        /// </summary>
         private uint numNuggets = 6;
 
         /// <summary>
@@ -43,6 +45,15 @@ namespace DinoDiner.Menu.Entrees
             this.numNuggets++;
             this.Price = 4.25 + .25 * (numNuggets - 6);
             this.Calories = 59 * numNuggets;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

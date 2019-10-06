@@ -1,14 +1,23 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the VelociWrap.
     /// </summary>
     public class VelociWrap : Entree
     {
+        /// <summary>
+        /// Holds whether or not there should be dressing.
+        /// </summary>
         private bool dressing = true;
+        /// <summary>
+        /// Holds whether or not there should be lettuce.
+        /// </summary>
         private bool lettuce = true;
+        /// <summary>
+        /// Holds whether or not there should be cheese.
+        /// </summary>
         private bool cheese = true;
 
         /// <summary>
@@ -58,6 +67,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.cheese = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

@@ -1,19 +1,43 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the TRexKingBurger.
     /// </summary>
     public class TRexKingBurger : Entree
     {
+        /// <summary>
+        /// Holds whether or not there should be a bun.
+        /// </summary>
         private bool bun = true;
+        /// <summary>
+        /// Holds whether or not there should be lettuce.
+        /// </summary>
         private bool lettuce = true;
+        /// <summary>
+        /// Holds whether or not there should be tomato.
+        /// </summary>
         private bool tomato = true;
+        /// <summary>
+        /// Holds whether or not there should be onion.
+        /// </summary>
         private bool onion = true;
+        /// <summary>
+        /// Holds whether or not there should be pickle.
+        /// </summary>
         private bool pickle = true;
+        /// <summary>
+        /// Holds whether or not there should be ketchup.
+        /// </summary>
         private bool ketchup = true;
+        /// <summary>
+        /// Holds whether or not there should be mustard.
+        /// </summary>
         private bool mustard = true;
+        /// <summary>
+        /// Holds whether or not there should be mayo.
+        /// </summary>
         private bool mayo = true;
 
         /// <summary>
@@ -109,6 +133,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldLettuce()
         {
             this.lettuce = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

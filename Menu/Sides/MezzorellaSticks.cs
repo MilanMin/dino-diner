@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for MezzorellaSticks.
     /// </summary>
     public class MezzorellaSticks : Side
     {
-
+        /// <summary>
+        /// Holds the size.
+        /// </summary>
         protected Size size;
 
         /// <summary>
@@ -63,6 +65,30 @@ namespace DinoDiner.Menu.Sides
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            switch (Size)
+            {
+                case Size.Small:
+                    sb.Append("Small ");
+                    break;
+                case Size.Medium:
+                    sb.Append("Medium ");
+                    break;
+                case Size.Large:
+                    sb.Append("Large ");
+                    break;
+            }
+
+            sb.Append("Mezzorella Sticks");
+            return sb.ToString();
         }
     }
 }
