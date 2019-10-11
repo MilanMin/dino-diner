@@ -1,18 +1,33 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class SteakosaurusBurger
+    /// <summary>
+    /// Class for the SteakosaurusBurger.
+    /// </summary>
+    public class SteakosaurusBurger : Entree
     {
+        /// <summary>
+        /// Holds whether or not there should be a bun.
+        /// </summary>
         private bool bun = true;
+        /// <summary>
+        /// Holds whether or not there should be pickle.
+        /// </summary>
         private bool pickle = true;
+        /// <summary>
+        /// Holds whether or not there should be ketchup.
+        /// </summary>
         private bool ketchup = true;
+        /// <summary>
+        /// Holds whether or not there should be mustard.
+        /// </summary>
         private bool mustard = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Provides a list of ingredients for the SteakosaurusBurger.
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -25,28 +40,54 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs a SteakosaurusBurger.
+        /// </summary>
         public SteakosaurusBurger()
         {
             this.Price = 5.15;
             this.Calories = 621;
         }
 
+        /// <summary>
+        /// Holds the bun.
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
 
+        /// <summary>
+        /// Holds the pickle.
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
+
+        /// <summary>
+        /// Holds the ketchup.
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
+
+        /// <summary>
+        /// Holds the mustard.
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

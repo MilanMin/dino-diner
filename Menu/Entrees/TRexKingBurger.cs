@@ -1,22 +1,49 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class TRexKingBurger
+    /// <summary>
+    /// Class for the TRexKingBurger.
+    /// </summary>
+    public class TRexKingBurger : Entree
     {
+        /// <summary>
+        /// Holds whether or not there should be a bun.
+        /// </summary>
         private bool bun = true;
+        /// <summary>
+        /// Holds whether or not there should be lettuce.
+        /// </summary>
         private bool lettuce = true;
+        /// <summary>
+        /// Holds whether or not there should be tomato.
+        /// </summary>
         private bool tomato = true;
+        /// <summary>
+        /// Holds whether or not there should be onion.
+        /// </summary>
         private bool onion = true;
+        /// <summary>
+        /// Holds whether or not there should be pickle.
+        /// </summary>
         private bool pickle = true;
+        /// <summary>
+        /// Holds whether or not there should be ketchup.
+        /// </summary>
         private bool ketchup = true;
+        /// <summary>
+        /// Holds whether or not there should be mustard.
+        /// </summary>
         private bool mustard = true;
+        /// <summary>
+        /// Holds whether or not there should be mayo.
+        /// </summary>
         private bool mayo = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Provides a list of ingredients for the TRexKingBurger.
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -35,44 +62,86 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs a TRexKingBurger.
+        /// </summary>
         public TRexKingBurger()
         {
             this.Price = 8.45;
             this.Calories = 728;
         }
 
+        /// <summary>
+        /// Holds the bun.
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
 
+        /// <summary>
+        /// Holds the tomato.
+        /// </summary>
         public void HoldTomato()
         {
             this.tomato = false;
         }
+
+        /// <summary>
+        /// Holds the onion.
+        /// </summary>
         public void HoldOnion()
         {
             this.onion = false;
         }
+
+        /// <summary>
+        /// Holds the pickle.
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
+
+        /// <summary>
+        /// Holds the ketchup.
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
+
+        /// <summary>
+        /// Holds the mustard.
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
         }
+
+        /// <summary>
+        /// Holds the mayo.
+        /// </summary>
         public void HoldMayo()
         {
             this.mayo = false;
         }
+
+        /// <summary>
+        /// Holds the lettuce.
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

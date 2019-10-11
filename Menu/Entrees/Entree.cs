@@ -5,9 +5,9 @@ using System.Text;
 namespace DinoDiner.Menu
 {
     /// <summary>
-    /// Contains the base class for all sides.
+    /// Base class for entrees.
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Entree : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -22,12 +22,6 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public abstract List<string> Ingredients { get; }
-
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public abstract Size Size { get; set; }
-
+        public virtual List<string> Ingredients { get; }
     }
 }

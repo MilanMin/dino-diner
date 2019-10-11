@@ -1,13 +1,17 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class PterodactylWings
+    /// <summary>
+    /// Class for PterodactylWings.
+    /// </summary>
+    public class PterodactylWings : Entree
     {
-        public double Price { get; set; }
-        public uint Calories { get; set; }
 
-        public List<string> Ingredients
+        /// <summary>
+        /// Provides a list of ingredients for PterodactylWings.
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -17,10 +21,22 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs PterodactylWings.
+        /// </summary>
         public PterodactylWings()
         {
             this.Price = 7.21;
             this.Calories = 318;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
         }
     }
 }
