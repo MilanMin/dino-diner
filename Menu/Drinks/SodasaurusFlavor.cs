@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Contains the enum for all possible Sodasaurus flavors. (Cola, RootBeer, Cherry, Vanilla, Chocolate, Orange, and Lime).

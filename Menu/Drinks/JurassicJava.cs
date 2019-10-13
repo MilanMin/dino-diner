@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Contains the class for the drink JurrassicJava.
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// Variable for whether or not there should be room for cream in the drink.
@@ -22,7 +22,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Creates a jurrasic java drink.
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             Size = Size.Small;
             Ice = false;
@@ -92,6 +92,34 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            switch (Size)
+            {
+                case Size.Small:
+                    sb.Append("Small ");
+                    break;
+                case Size.Medium:
+                    sb.Append("Medium ");
+                    break;
+                case Size.Large:
+                    sb.Append("Large ");
+                    break;
+            }
+            if (Decaf == true)
+            {
+                sb.Append("Decaf ");
+            }
+                
+            sb.Append("Jurassic Java");
+            return sb.ToString();
         }
     }
 }

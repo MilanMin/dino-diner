@@ -1,15 +1,27 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the SteakosaurusBurger.
     /// </summary>
     public class SteakosaurusBurger : Entree
     {
+        /// <summary>
+        /// Holds whether or not there should be a bun.
+        /// </summary>
         private bool bun = true;
+        /// <summary>
+        /// Holds whether or not there should be pickle.
+        /// </summary>
         private bool pickle = true;
+        /// <summary>
+        /// Holds whether or not there should be ketchup.
+        /// </summary>
         private bool ketchup = true;
+        /// <summary>
+        /// Holds whether or not there should be mustard.
+        /// </summary>
         private bool mustard = true;
 
         /// <summary>
@@ -67,6 +79,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             this.mustard = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

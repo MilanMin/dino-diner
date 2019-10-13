@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the Sodasaurus drink.
@@ -71,6 +71,55 @@ namespace DinoDiner.Menu.Drinks
                 ingredients.Add("Cane Sugar");
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item.
+        /// </summary>
+        /// <returns>Name of the menu item.</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            switch (Size)
+            {
+                case Size.Small:
+                    sb.Append("Small ");
+                    break;
+                case Size.Medium:
+                    sb.Append("Medium ");
+                    break;
+                case Size.Large:
+                    sb.Append("Large ");
+                    break;
+            }
+
+            switch (Flavor)
+            {
+                case SodasaurusFlavor.Cola:
+                    sb.Append("Cola ");
+                    break;
+                case SodasaurusFlavor.RootBeer:
+                    sb.Append("RootBeer ");
+                    break;
+                case SodasaurusFlavor.Cherry:
+                    sb.Append("Cherry ");
+                    break;
+                case SodasaurusFlavor.Vanilla:
+                    sb.Append("Vanilla ");
+                    break;
+                case SodasaurusFlavor.Chocolate:
+                    sb.Append("Chocolate ");
+                    break;
+                case SodasaurusFlavor.Orange:
+                    sb.Append("Orange ");
+                    break;
+                case SodasaurusFlavor.Lime:
+                    sb.Append("Lime ");
+                    break;
+            }
+
+            sb.Append("Sodasaurus");
+            return sb.ToString();
         }
     }
 }
