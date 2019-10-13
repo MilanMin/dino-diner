@@ -1,0 +1,34 @@
+﻿<Page x:Class="PointOfSale.SideSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SideSelection">
+
+    <DockPanel>
+        <DockPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="MinWidth" Value="120"/>
+                <Setter Property="MinHeight" Value="80"/>
+            </Style>
+        </DockPanel.Resources>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
+        <StackPanel DockPanel.Dock="Left">
+            <TextBlock FontSize="20" TextAlignment="Center">Side</TextBlock>
+            <Button>Fryceritops</Button>
+            <Button>Meteor Mac &amp; Cheese</Button>
+            <Button>Mezzorella Sticks</Button>
+            <Button>Triceritots</Button>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Right">
+            <TextBlock FontSize="20" TextAlignment="Center">Size</TextBlock>
+            <RadioButton>Small</RadioButton>
+            <RadioButton>Medium</RadioButton>
+            <RadioButton>Large</RadioButton>
+        </StackPanel>
+    </DockPanel>
+</Page>

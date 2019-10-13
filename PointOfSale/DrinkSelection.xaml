@@ -1,0 +1,33 @@
+﻿<Page x:Class="PointOfSale.DrinkSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DrinkSelection">
+
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
+
+        <StackPanel DockPanel.Dock="Left">
+            <Button>Sodasaurus</Button>
+            <Button>Tyrannotea</Button>
+            <Button>Jurrasic Java</Button>
+            <Button>Water</Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left">
+            <RadioButton>Small</RadioButton>
+            <RadioButton>Medium</RadioButton>
+            <RadioButton>Large</RadioButton>
+            <RadioButton>Water</RadioButton>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right">
+            <Button>Sweet/Decaf/Flavor</Button>
+            <Button>Add Lemon</Button>
+            <Button>Hold Ice</Button>
+            <Button>Water</Button>
+        </StackPanel>
+    </DockPanel>
+</Page>
