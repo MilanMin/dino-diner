@@ -14,7 +14,7 @@
         <WrapPanel>
             <WrapPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="MinWidth" Value="180"/>
+                    <Setter Property="MinWidth" Value="140"/>
                     <Setter Property="Height" Value="140"/>
                     <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
                     <Setter Property="BorderThickness" Value="2"/>

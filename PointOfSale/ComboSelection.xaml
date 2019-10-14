@@ -12,8 +12,8 @@
         <WrapPanel>
             <WrapPanel.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="MinWidth" Value="180"/>
-                    <Setter Property="Height" Value="140"/>
+                    <Setter Property="MinWidth" Value="140"/>
+                    <Setter Property="MinHeight" Value="140"/>
                     <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
                     <Setter Property="BorderThickness" Value="2"/>
                 </Style>
@@ -29,10 +29,10 @@
                 </StackPanel>
             </Button>
             <Button Click="EntreeSelected">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
-                </Button.Background>
-                Dino-Nuggets Combo
+                <StackPanel>
+                    <Image Source="Assets/DinoDiner-02.png"/>
+                    <TextBlock>Dino-Nuggets Combo</TextBlock>
+                </StackPanel>
             </Button>
             <Button Click="EntreeSelected">
                 <DockPanel>
@@ -70,5 +70,5 @@
             </Button>
         </WrapPanel>
     </DockPanel>
-    
+
 </Page>

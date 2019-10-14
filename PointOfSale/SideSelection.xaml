@@ -7,28 +7,36 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SideSelection">
+    <Viewbox Stretch="Uniform">
+        <DockPanel>
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="MinWidth" Value="120"/>
+                    <Setter Property="MinHeight" Value="80"/>
+                </Style>
+            </DockPanel.Resources>
+            <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
+            <StackPanel DockPanel.Dock="Left">
+                <TextBlock FontSize="20" TextAlignment="Center">Side</TextBlock>
+                <Button Click="SideChosen">Fryceritops</Button>
+                <Button Click="SideChosen">Meteor Mac &amp; Cheese</Button>
+                <Button Click="SideChosen">Mezzorella Sticks</Button>
+                <Button Click="SideChosen">Triceritots</Button>
+            </StackPanel>
+            
+            <StackPanel DockPanel.Dock="Right">
+                <TextBlock FontSize="20" TextAlignment="Center">Size</TextBlock>
+                <Viewbox Height="40">
+                    <RadioButton x:Name="SizeSmall">Small</RadioButton>
+                </Viewbox>
+                <Viewbox Height="40">
+                <RadioButton x:Name="SizeMedium" >Medium</RadioButton>
+                </Viewbox>
+                <Viewbox Height="40">
+                    <RadioButton x:Name="SizeLarge">Large</RadioButton>
+                </Viewbox>
+            </StackPanel>
 
-    <DockPanel>
-        <DockPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="MinWidth" Value="120"/>
-                <Setter Property="MinHeight" Value="80"/>
-            </Style>
-        </DockPanel.Resources>
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
-        <StackPanel DockPanel.Dock="Left">
-            <TextBlock FontSize="20" TextAlignment="Center">Side</TextBlock>
-            <Button>Fryceritops</Button>
-            <Button>Meteor Mac &amp; Cheese</Button>
-            <Button>Mezzorella Sticks</Button>
-            <Button>Triceritots</Button>
-        </StackPanel>
-
-        <StackPanel DockPanel.Dock="Right">
-            <TextBlock FontSize="20" TextAlignment="Center">Size</TextBlock>
-            <RadioButton>Small</RadioButton>
-            <RadioButton>Medium</RadioButton>
-            <RadioButton>Large</RadioButton>
-        </StackPanel>
-    </DockPanel>
+        </DockPanel>
+    </Viewbox>
 </Page>

@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomizeCombo">
 
+    <Viewbox Stretch="Uniform">
     <DockPanel>
         <DockPanel.Resources>
             <Style TargetType="Button">
@@ -16,21 +17,21 @@
             </Style>
         </DockPanel.Resources>
         <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="20">Customize Combo</TextBlock>
         <StackPanel DockPanel.Dock="Left">
             <TextBlock FontSize="20" TextAlignment="Center">Side</TextBlock>
-            <Button>Friceritops</Button>
+            <Button Click="SelectSide" x:Name="CustomizeComboSideButton">PICK SIDE</Button>
         </StackPanel>
-        
         <StackPanel DockPanel.Dock="Left">
             <TextBlock FontSize="20" TextAlignment="Center">Size</TextBlock>
             <RadioButton>Small</RadioButton>
             <RadioButton>Medium</RadioButton>
             <RadioButton>Large</RadioButton>
         </StackPanel>
-        
         <StackPanel DockPanel.Dock="Right">
             <TextBlock FontSize="20" TextAlignment="Center">Drink</TextBlock>
-            <Button>Sodasaurus</Button>
+            <Button Click="SelectDrink" x:Name="CustomizeComboDrinkButton">PICK DRINK</Button>
         </StackPanel>
     </DockPanel>
+    </Viewbox>
 </Page>

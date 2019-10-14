@@ -20,9 +20,72 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+        /// <summary>
+        /// Stores the text for the side button
+        /// </summary>
+        private string side = "PICK SIDE";
+        /// <summary>
+        /// Stores the public get and set accessors for the side button
+        /// </summary>
+        public string Side
+        {
+            get
+            {
+                return side;
+            }
+            set
+            {
+                side = value;
+                CustomizeComboSideButton.Content = value;
+            }
+        }
+
+        /// <summary>
+        /// Stores the text for the drink button
+        /// </summary>
+        private string drink = "PICK DRINK";
+        /// <summary>
+        /// Stores the public get and set accessors for the side button
+        /// </summary>
+        public string Drink
+        {
+            get
+            {
+                return drink;
+            }
+            set
+            {
+                drink = value;
+                CustomizeComboDrinkButton.Content = value;
+            }
+        }
+
+        /// <summary>
+        /// Constructs the customizecombo page
+        /// </summary>
         public CustomizeCombo()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Runs when side is clicked
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">The event arguments</param>
+        private void SelectSide(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SideSelection(this));
+        }
+
+        /// <summary>
+        /// Runs when drink is clicked
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">The event arguments</param>
+        private void SelectDrink(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DrinkSelection(this));
         }
     }
 }

@@ -20,9 +20,25 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private CustomizeCombo c = null;
         public SideSelection()
         {
             InitializeComponent();
+        }
+
+        public SideSelection(CustomizeCombo C)
+        {
+            InitializeComponent();
+            c = C;
+        }
+
+        private void SideChosen(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            if (c!= null){
+                c.Side = (string)b.Content;
+            }
+            
         }
     }
 }

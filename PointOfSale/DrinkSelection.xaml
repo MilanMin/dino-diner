@@ -7,15 +7,15 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
-
+    <Viewbox Stretch="Uniform">
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
 
         <StackPanel DockPanel.Dock="Left">
-            <Button>Sodasaurus</Button>
-            <Button>Tyrannotea</Button>
-            <Button>Jurrasic Java</Button>
-            <Button>Water</Button>
+            <Button Click="DrinkChosen">Sodasaurus</Button>
+            <Button Click="DrinkChosen">Tyrannotea</Button>
+            <Button Click="DrinkChosen">Jurrasic Java</Button>
+            <Button Click="DrinkChosen">Water</Button>
         </StackPanel>
         <StackPanel DockPanel.Dock="Left">
             <RadioButton>Small</RadioButton>
@@ -24,10 +24,10 @@
             <RadioButton>Water</RadioButton>
         </StackPanel>
         <StackPanel DockPanel.Dock="Right">
-            <Button>Sweet/Decaf/Flavor</Button>
-            <Button>Add Lemon</Button>
-            <Button>Hold Ice</Button>
-            <Button>Water</Button>
+            <Button Click="SelectFlavor" x:Name="FlavorButton" Visibility="Hidden">Sweet/Decaf/Flavor</Button>
+            <Button Click="ToggleLemon" x:Name="LemonButton" Visibility="Collapsed">Add Lemon</Button>
+            <Button Click="ToggleIce" x:Name="IceButton" Visibility="Collapsed">Hold Ice</Button>
         </StackPanel>
     </DockPanel>
+    </Viewbox>
 </Page>

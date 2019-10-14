@@ -20,7 +20,19 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        /// <summary>
+        /// Constructs the flavor selection page
+        /// </summary>
         public FlavorSelection()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Constructs the flavor selection page for a given drink
+        /// </summary>
+        /// <param name="d">The drink page that constructed the flavor selection page</param>
+        public FlavorSelection(DrinkSelection d)
         {
             InitializeComponent();
         }
