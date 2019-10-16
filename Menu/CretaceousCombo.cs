@@ -97,38 +97,35 @@ namespace DinoDiner.Menu
         /// <returns></returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            if (Entree.GetType() == new Brontowurst().GetType())
-            {
-                sb.Append("Brontowurst ");
-            }
-            else if (Entree.GetType() == new DinoNuggets().GetType())
-            {
-                sb.Append("Dino-Nuggets ");
-            }
-            else if (Entree.GetType() == new PrehistoricPBJ().GetType())
-            {
-                sb.Append("Prehistoric PB&J ");
-            }
-            else if (Entree.GetType() == new PterodactylWings().GetType())
-            {
-                sb.Append("Pterodactyl Wings ");
-            }
-            else if (Entree.GetType() == new SteakosaurusBurger().GetType())
-            {
-                sb.Append("Steakosaurus Burger ");
-            }
-            else if (Entree.GetType() == new TRexKingBurger().GetType())
-            {
-                sb.Append("T-Rex King Burger ");
-            }
-            else if (Entree.GetType() == new VelociWrap().GetType())
-            {
-                sb.Append("Veloci-Wrap ");
-            }
+            return $"{Size} {Entree} Combo";
+        }
 
-            sb.Append("Combo");
-            return sb.ToString();
+        /// <summary>
+        /// Gets the description for the combo.
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets any special preperation instructions.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                special.AddRange(Entree.Special);
+                special.Add(Side.ToString());
+                special.AddRange(Side.Special);
+                special.Add(Drink.ToString());
+                special.AddRange(Side.Special);
+                return special.ToArray();
+            }
         }
 
     }

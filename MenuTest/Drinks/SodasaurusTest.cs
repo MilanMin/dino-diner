@@ -8,7 +8,7 @@ namespace MenuTest.Drinks
 {
     public class SodasaurusTest
     {
-        
+
         [Fact]
         public void ShouldBeAbleToSetFlavorToCola()
         {
