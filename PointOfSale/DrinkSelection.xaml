@@ -21,7 +21,6 @@
             <RadioButton>Small</RadioButton>
             <RadioButton>Medium</RadioButton>
             <RadioButton>Large</RadioButton>
-            <RadioButton>Water</RadioButton>
         </StackPanel>
         <StackPanel DockPanel.Dock="Right">
             <Button Click="SelectFlavor" x:Name="FlavorButton" Visibility="Hidden">Sweet/Decaf/Flavor</Button>
