@@ -18,10 +18,10 @@
             <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
             <StackPanel DockPanel.Dock="Left">
                 <TextBlock FontSize="20" TextAlignment="Center">Side</TextBlock>
-                <Button Click="SideChosen">Fryceritops</Button>
-                <Button Click="SideChosen">Meteor Mac &amp; Cheese</Button>
-                <Button Click="SideChosen">Mezzorella Sticks</Button>
-                <Button Click="SideChosen">Triceritots</Button>
+                <Button Name="BtnFryceritops" Click="SideChosen">Fryceritops</Button>
+                <Button Name="BtnMeteorMacAndCheese" Click="SideChosen">Meteor Mac &amp; Cheese</Button>
+                <Button Name="BtnMezzorellaSticks" Click="SideChosen">Mezzorella Sticks</Button>
+                <Button Name="BtnTriceritots" Click="SideChosen">Triceritots</Button>
             </StackPanel>
             
             <StackPanel DockPanel.Dock="Right">
