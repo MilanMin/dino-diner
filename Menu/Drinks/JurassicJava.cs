@@ -1,14 +1,54 @@
-﻿using System;
+﻿/* JurassicJava.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Contains the class for the drink JurrassicJava.
     /// </summary>
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Gets the special preparation instructions for this item.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                if (Ice) special.Add("Add Ice");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Gets the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
         /// <summary>
         /// Variable for whether or not there should be room for cream in the drink.
         /// </summary>
@@ -51,15 +91,22 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = .59;
                         Calories = 2;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Medium:
                         Price = .99;
                         Calories = 4;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
+                        
                 }
             }
         }
@@ -84,6 +131,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -92,6 +140,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

@@ -1,4 +1,8 @@
-﻿using Xunit;
+﻿/* FryceritopsTest.cs
+ * Author: Nathan Bean
+ * Edited by: Milan Minocha
+ */
+using Xunit;
 using DinoDiner.Menu;
 
 namespace MenuTest.Sides
@@ -82,6 +86,43 @@ namespace MenuTest.Sides
             Fryceritops ft = new Fryceritops();
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfDescriptionAndPricePropertyChanged()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Description", () =>
+            {
+                ft.Size = Size.Small;
+            });
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = Size.Small;
+            });
+            Assert.PropertyChanged(ft, "Description", () =>
+            {
+                ft.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ft, "Description", () =>
+            {
+                ft.Size = Size.Large;
+            });
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = Size.Large;
+            });
         }
     }
 }

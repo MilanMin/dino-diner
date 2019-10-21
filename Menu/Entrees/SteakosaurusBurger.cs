@@ -1,12 +1,54 @@
-﻿using System.Collections.Generic;
+﻿/* SteakosaurusBurger.cs
+ * Author: Milan Minocha
+ */
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the SteakosaurusBurger.
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Gets the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special preparation instructions for this item.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Bun");
+                if (!pickle) special.Add("Hold Pickles");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Holds whether or not there should be a bun.
         /// </summary>
@@ -55,6 +97,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -63,6 +107,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -71,6 +117,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -79,6 +127,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

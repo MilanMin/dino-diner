@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* WaterTest.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -130,6 +133,52 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", ingredients);
             Assert.Contains<string>("Lemon", ingredients);
             Assert.Equal<int>(2, ingredients.Count);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIce()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            string[] special = water.Special;
+            Assert.Contains<string>("Hold Ice", special);
+            Assert.Equal<int>(1, special.Length);
+        }
+
+        [Fact]
+        public void SpecialShouldAddLemon()
+        {
+            Water water = new Water();
+            water.AddLemon();
+            string[] special = water.Special;
+            Assert.Contains<string>("Add Lemon", special);
+            Assert.Equal<int>(1, special.Length);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIceAndAddLemon()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            water.AddLemon();
+            string[] special = water.Special;
+            Assert.Contains<string>("Hold Ice", special);
+            Assert.Contains<string>("Add Lemon", special);
+            Assert.Equal<int>(2, special.Length);
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifyOfSpecialAndIngredientsPropertyChanged()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.AddLemon();
+            });
+            Assert.PropertyChanged(water, "Ingredients", () =>
+            {
+                water.AddLemon();
+            });
         }
     }
 }

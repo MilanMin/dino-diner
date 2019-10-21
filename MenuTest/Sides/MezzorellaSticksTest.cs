@@ -1,4 +1,8 @@
-﻿using Xunit;
+﻿/* MezzorellaSticksTest.cs
+ * Author: Nathan Bean
+ * Edited by: Milan Minocha
+ */
+using Xunit;
 using DinoDiner.Menu;
 
 namespace MenuTest.Sides
@@ -82,6 +86,43 @@ namespace MenuTest.Sides
             MezzorellaSticks ms = new MezzorellaSticks();
             ms.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ms.Size);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Empty(ms.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfDescriptionAndPricePropertyChanged()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Description", () =>
+            {
+                ms.Size = Size.Small;
+            });
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Small;
+            });
+            Assert.PropertyChanged(ms, "Description", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(ms, "Description", () =>
+            {
+                ms.Size = Size.Large;
+            });
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Large;
+            });
         }
     }
 }

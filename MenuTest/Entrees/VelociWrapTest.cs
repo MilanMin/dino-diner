@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/* VelociWrapTest.cs
+ * Author: Nathan Bean
+ * Edited by: Milan Minocha
+ */
+using System.Collections.Generic;
 using Xunit;
 using DinoDiner.Menu;
 
@@ -55,6 +59,78 @@ namespace MenuTest.Entrees
             VelociWrap vw = new VelociWrap();
             vw.HoldCheese();
             Assert.DoesNotContain<string>("Parmesan Cheese", vw.Ingredients);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressing()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Dressing", special);
+            Assert.Equal<int>(1, special.Length);
+        }
+        [Fact]
+        public void SpecialShouldHoldLettuce()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Lettuce", special);
+            Assert.Equal<int>(1, special.Length);
+        }
+        [Fact]
+        public void SpecialShouldHoldCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldCheese();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Cheese", special);
+            Assert.Equal<int>(1, special.Length);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressingAndLettuceAndCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldLettuce();
+            vw.HoldCheese();
+            string[] special = vw.Special;
+            Assert.Contains("Hold Dressing", special);
+            Assert.Contains("Hold Lettuce", special);
+            Assert.Contains("Hold Cheese", special);
+            Assert.Equal<int>(3, special.Length);
+        }
+
+        [Fact]
+        public void HoldingShouldNotifyOfSpecialAndIngredientsPropertyChanged()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldDressing();
+            });
+            Assert.PropertyChanged(vw, "Ingredients", () =>
+            {
+                vw.HoldDressing();
+            });
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldLettuce();
+            });
+            Assert.PropertyChanged(vw, "Ingredients", () =>
+            {
+                vw.HoldLettuce();
+            });
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldCheese();
+            });
+            Assert.PropertyChanged(vw, "Ingredients", () =>
+            {
+                vw.HoldCheese();
+            });
         }
     }
 }

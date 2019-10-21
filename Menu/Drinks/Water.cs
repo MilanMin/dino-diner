@@ -1,14 +1,54 @@
-﻿using System;
+﻿/* Water.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the drink water.
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Gets the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special preparation instructions for this item.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Variable that holds whether or not a lemon comes with the drink.
         /// </summary>
@@ -42,6 +82,7 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -65,6 +106,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

@@ -1,3 +1,7 @@
+/* PrehistoricPBJTest.cs
+ * Author: Nathan Bean
+ * Edited by: Milan Minocha
+ */
 using System.Collections.Generic;
 using Xunit;
 using DinoDiner.Menu;

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CretaceousCombo.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
@@ -7,8 +10,9 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class for a combo.
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem
     {
+
         /// <summary>
         /// The entree in the combo.
         /// </summary>
@@ -97,7 +101,7 @@ namespace DinoDiner.Menu
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Size} {Entree} Combo";
+            return $"{Entree} Combo";
         }
 
         /// <summary>

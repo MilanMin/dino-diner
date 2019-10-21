@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿/* PrehistoricPBJ.cs
+ * Author: Milan Minocha
+ */
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace DinoDiner.Menu
@@ -8,6 +11,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class PrehistoricPBJ : Entree, INotifyPropertyChanged
     {
+
         /// <summary>
         /// Holds whether or not there should be peanut butter.
         /// </summary>
@@ -32,7 +36,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the description.
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -43,7 +47,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets any special preparation instructions.
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

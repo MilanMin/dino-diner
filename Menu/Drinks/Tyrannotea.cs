@@ -1,14 +1,54 @@
-﻿using System;
+﻿/* Tyrannotea.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Contains the class for the drink Tyrannotea.
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Gets the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special preparation instructions for this item.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Contains the variable of whether or not the drink is sweet.
@@ -56,14 +96,20 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = .99;
                         Calories = 8 * multiplier;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Medium:
                         Price = 1.49;
                         Calories = 16 * multiplier;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Large:
                         Price = 1.99;
                         Calories = 32 * multiplier;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                 }
             }
@@ -91,6 +137,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

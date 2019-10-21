@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Side.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +10,16 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Contains the base class for all sides.
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem
     {
+        /// <summary>
+        /// Gets the description for the item.
+        /// </summary>
+        public abstract string Description { get; }
+        /// <summary>
+        /// Gets the special preperation instructions for the item.
+        /// </summary>
+        public abstract string[] Special { get; }
         /// <summary>
         /// Gets and sets the price
         /// </summary>

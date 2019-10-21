@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* SodasaurusTest.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -160,6 +163,36 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Natural Flavors", ingredients);
             Assert.Contains<string>("Cane Sugar", ingredients);
             Assert.Equal<int>(3, ingredients.Count);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfDescriptionAndPricePropertyChanged()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Size = Size.Small;
+            });
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Small;
+            });
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Size = Size.Large;
+            });
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Large;
+            });
         }
     }
 }

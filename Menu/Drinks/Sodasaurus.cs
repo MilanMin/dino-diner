@@ -1,14 +1,30 @@
-﻿using System;
+﻿/* Sodasaurus.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for the Sodasaurus drink.
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Contains the flavor for the sodasaurus drink.
         /// </summary>
@@ -45,14 +61,20 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 1.50;
                         Calories = 112;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Medium:
                         Price = 2.00;
                         Calories = 156;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Large:
                         Price = 2.50;
                         Calories = 208;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                 }
             }
@@ -76,7 +98,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of this order item.
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -87,7 +109,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets any special instructions for this order item.
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

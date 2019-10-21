@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/* DinoNuggetsTest.cs
+ * Author: Nathan Bean
+ * Edited by: Milan Minocha
+ */
+using System.Collections.Generic;
 using Xunit;
 using DinoDiner.Menu;
 
@@ -84,6 +88,40 @@ namespace MenuTest.Entrees
             Assert.Equal<uint>(dn.Calories, 59*8);
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
+        }
+
+        [Fact]
+        public void SpecialShouldAddExtraNuggets()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            string[] special = dn.Special;
+            Assert.Equal<int>(0, special.Length);
+            dn.AddNugget();
+            special = dn.Special;
+            Assert.Contains("1 Extra Nuggets", special);
+            Assert.Equal<int>(1, special.Length);
+            dn.AddNugget();
+            special = dn.Special;
+            Assert.Contains("2 Extra Nuggets", special);
+            Assert.Equal<int>(1, special.Length);
+            dn.AddNugget();
+            special = dn.Special;
+            Assert.Contains("3 Extra Nuggets", special);
+            Assert.Equal<int>(1, special.Length);
+        }
+
+        [Fact]
+        public void AddingNuggetShouldNotifyOfSpecialAndIngredientsPropertyChanged()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Special", () =>
+            {
+                dn.AddNugget();
+            });
+            Assert.PropertyChanged(dn, "Ingredients", () =>
+            {
+                dn.AddNugget();
+            });
         }
     }
 }

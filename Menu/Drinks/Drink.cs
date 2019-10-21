@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Drink.cs
+ * Author: Milan Minocha
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +11,18 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Contains the base class for a Drink.
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
+
+        /// <summary>
+        /// Gets the description for the item.
+        /// </summary>
+        public abstract string Description { get; }
+        /// <summary>
+        /// Gets the special preperation instructions for the item.
+        /// </summary>
+        public abstract string[] Special { get; }
+
         /// <summary>
         /// Contains the price of a drink.
         /// </summary>

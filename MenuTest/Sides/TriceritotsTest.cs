@@ -1,4 +1,8 @@
-﻿using Xunit;
+﻿/* TriceritotsTest.cs
+ * Author: Nathan Bean
+ * Edited by: Milan Minocha
+ */
+using Xunit;
 using DinoDiner.Menu;
 
 namespace MenuTest.Sides
@@ -82,6 +86,43 @@ namespace MenuTest.Sides
             Triceritots tt = new Triceritots();
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyOfDescriptionAndPricePropertyChanged()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Size = Size.Small;
+            });
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Small;
+            });
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(tt, "Description", () =>
+            {
+                tt.Size = Size.Large;
+            });
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Large;
+            });
         }
     }
 }

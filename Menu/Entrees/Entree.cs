@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Entree.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +10,16 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Base class for entrees.
     /// </summary>
-    public abstract class Entree : IMenuItem
+    public abstract class Entree : IMenuItem, IOrderItem
     {
+        /// <summary>
+        /// Gets the description for the item.
+        /// </summary>
+        public abstract string Description { get; }
+        /// <summary>
+        /// Gets the special preperation instructions for the item.
+        /// </summary>
+        public abstract string[] Special { get; }
         /// <summary>
         /// Gets and sets the price
         /// </summary>

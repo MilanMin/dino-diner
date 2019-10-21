@@ -1,14 +1,52 @@
-﻿using System;
+﻿/* Fryceritops.cs
+ * Author: Milan Minocha
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for Fryceritops.
     /// </summary>
-    public class Fryceritops : Side
+    public class Fryceritops : Side, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Gets the description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special preparation instructions for this item.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Holds the size.
         /// </summary>
@@ -44,14 +82,20 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         this.Price = .99;
                         this.Calories = 222;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Medium:
                         this.Price = 1.45;
                         this.Calories = 365;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                     case Size.Large:
                         this.Price = 1.95;
                         this.Calories = 480;
+                        NotifyOfPropertyChange("Description");
+                        NotifyOfPropertyChange("Price");
                         break;
                 }
             }
@@ -73,17 +117,17 @@ namespace DinoDiner.Menu
         {
             if (Size == Size.Small)
             {
-                return "Small Friceritops";
+                return "Small Fryceritops";
             }
             else if (Size == Size.Medium)
             {
-                return "Medium Friceritops";
+                return "Medium Fryceritops";
             }
             else if (Size == Size.Large)
             {
-                return "Large Friceritops";
+                return "Large Fryceritops";
             }
-            return ("Friceritops");
+            return ("Fryceritops");
         }
     }
 }
