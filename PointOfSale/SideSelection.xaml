@@ -23,17 +23,17 @@
                 <Button Name="BtnMezzorellaSticks" Click="SideChosen">Mezzorella Sticks</Button>
                 <Button Name="BtnTriceritots" Click="SideChosen">Triceritots</Button>
             </StackPanel>
-            
+
             <StackPanel DockPanel.Dock="Right">
                 <TextBlock FontSize="20" TextAlignment="Center">Size</TextBlock>
                 <Viewbox Height="40">
-                    <RadioButton x:Name="SizeSmall">Small</RadioButton>
+                    <RadioButton GroupName="RB" x:Name="SizeSmall" Checked="SizeSmall_Checked" IsEnabled="False">Small</RadioButton>
                 </Viewbox>
                 <Viewbox Height="40">
-                <RadioButton x:Name="SizeMedium" >Medium</RadioButton>
+                    <RadioButton GroupName="RB" x:Name="SizeMedium" Checked="SizeMedium_Checked" IsEnabled="False" >Medium</RadioButton>
                 </Viewbox>
                 <Viewbox Height="40">
-                    <RadioButton x:Name="SizeLarge">Large</RadioButton>
+                    <RadioButton GroupName="RB" x:Name="SizeLarge" Checked="SizeLarge_Checked" IsEnabled="False">Large</RadioButton>
                 </Viewbox>
             </StackPanel>
 

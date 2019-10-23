@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -20,9 +21,20 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        public NavigationService NavigationService { get; set; }
         public OrderControl()
         {
             InitializeComponent();
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(((ListBox)sender).SelectedItem is Side side)
+            {
+                
+                NavigationService?.Navigate(new SideSelection(side));
+            }
+
         }
     }
 }

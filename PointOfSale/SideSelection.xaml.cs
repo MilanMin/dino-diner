@@ -21,6 +21,8 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private Side Side;
+
         private CustomizeCombo c = null;
         public SideSelection()
         {
@@ -33,6 +35,12 @@ namespace PointOfSale
             c = C;
         }
 
+        public SideSelection(Side s)
+        {
+            InitializeComponent();
+            Side = s;
+        }
+
         private void SideChosen(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
@@ -43,21 +51,44 @@ namespace PointOfSale
             switch ((string)b.Content)
             {
                 case "Fryceritops":
-                    order.Items.Add(new Fryceritops());
+                    TryAddSide(new Fryceritops());
                     break;
                 case "Meteor Mac & Cheese":
-                    order.Items.Add(new MeteorMacAndCheese());
+                    TryAddSide(new MeteorMacAndCheese());
                     break;
                 case "Mezzorella Sticks":
-                    order.Items.Add(new MezzorellaSticks());
+                    TryAddSide(new MezzorellaSticks());
                     break;
                 case "Triceritots":
-                    order.Items.Add(new Triceritots());
+                    TryAddSide(new Triceritots());
                     break;
             }
 
             DisableAllSideButtons();
             
+        }
+
+        private void TryAddSide(Side s)
+        {
+
+            if (Side == null)
+            {
+                Order order = (Order)DataContext;
+                Side = s;
+                order.Items.Add(Side);
+            }
+            else
+            {
+                //Add code
+            }
+            EnableSizeButtons();
+        }
+
+        private void EnableSizeButtons()
+        {
+            SizeSmall.IsEnabled = true;
+            SizeMedium.IsEnabled = true;
+            SizeLarge.IsEnabled = true;
         }
 
         private void DisableAllSideButtons()
@@ -66,6 +97,21 @@ namespace PointOfSale
             BtnMeteorMacAndCheese.IsEnabled = false;
             BtnMezzorellaSticks.IsEnabled = false;
             BtnTriceritots.IsEnabled = false;
+        }
+
+        private void SizeSmall_Checked(object sender, RoutedEventArgs e)
+        {
+            Side.Size = DinoDiner.Menu.Size.Small;
+        }
+
+        private void SizeMedium_Checked(object sender, RoutedEventArgs e)
+        {
+            Side.Size = DinoDiner.Menu.Size.Medium;
+        }
+
+        private void SizeLarge_Checked(object sender, RoutedEventArgs e)
+        {
+            Side.Size = DinoDiner.Menu.Size.Large;
         }
     }
 }

@@ -31,18 +31,18 @@ namespace PointOfSale
             t.AddLemon();
             order.Items.Add(f);
             order.Items.Add(t);
-
+            OrderList.NavigationService = OrderInterface.NavigationService;
             
         }
 
         public void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
-
+            BindDataContextToPage();
         }
 
         public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-
+            BindDataContextToPage();
         }
 
         private void SetFrameDataContext()
@@ -51,5 +51,16 @@ namespace PointOfSale
             if (content == null) return;
             content.DataContext = OrderInterface.DataContext;
         }
+
+        private void BindDataContextToPage()
+        {
+            if(OrderInterface.Content is FrameworkElement element)
+            {
+                element.DataContext = OrderInterface.DataContext;
+            }
+
+        }
+
+
     }
 }
