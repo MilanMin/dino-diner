@@ -14,15 +14,24 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBox Text="Order" TextAlignment="Center" Background="DarkOliveGreen"  Grid.Row="0"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" SelectionChanged="ListBox_SelectionChanged">
+        <ListBox Name="OrderItems" Grid.Row="1" ItemsSource="{Binding Path=Items}" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                    <StackPanel Width="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                        
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Click="OnRemoveItem" Background="Red" Foreground="White" Grid.Column="1">X</Button>
+                            
+                            
+                        </Grid>
                         <ListBox ItemsSource="{Binding Path=Special}"/>
                     </StackPanel>
                 </DataTemplate>
-                
             </ListBox.ItemTemplate>
         </ListBox>
         <Border Grid.Row="2">

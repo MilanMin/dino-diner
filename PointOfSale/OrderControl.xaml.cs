@@ -29,12 +29,42 @@ namespace PointOfSale
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(((ListBox)sender).SelectedItem is Side side)
+            if (((ListBox)sender).SelectedItem is Side side)
             {
-                
+
                 NavigationService?.Navigate(new SideSelection(side));
             }
 
+        }
+
+        /*
+        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            MountItemListener();
+        }
+
+        private void MountItemListener()
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.CollectionChanged += OnCollectionChanged;
+            }
+        }
+        */
+
+        
+
+        private void OnRemoveItem(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                if(sender is FrameworkElement element)
+                if(element.DataContext is IOrderItem item)
+                {
+                    order.Items.Remove(item);
+                }
+            }
+            
         }
     }
 }

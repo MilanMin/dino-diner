@@ -5,13 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that represents a customer's order.
     /// </summary>
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         /// <summary>
         /// Contains all the items in the order.
@@ -62,5 +64,21 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// An event handler for property changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Order()
+        {
+            Items.CollectionChanged += OnCollectionChanged;
+        }
+
+        private void OnCollectionChanged(object sender, EventArgs args)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+        }
     }
 }
