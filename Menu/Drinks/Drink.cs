@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -47,6 +48,12 @@ namespace DinoDiner.Menu
         /// Contains whether there should be ice or not in a drink.
         /// </summary>
         public bool Ice { get; set; } = true;
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Holds the ice in a drink.

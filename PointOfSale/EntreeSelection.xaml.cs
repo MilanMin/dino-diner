@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -21,11 +22,85 @@ namespace PointOfSale
     public partial class EntreeSelection : Page
     {
         /// <summary>
+        /// Contains the entree chosen
+        /// </summary>
+        private Entree entree;
+
+        /// <summary>
         /// Constructs the entree selection page
         /// </summary>
         public EntreeSelection()
         {
             InitializeComponent();
+        }
+
+        private void EntreeSelected(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                /*
+                if (c != null)
+                {
+                    c.Side = (string)b.Content;
+                }
+                */
+                Order order = (Order)DataContext;
+                switch ((string)button.Content)
+                {
+                    case "Brontowurst":
+                        TryAddEntree(new Brontowurst());
+                        break;
+                    case "Dino-Nuggets":
+                        TryAddEntree(new DinoNuggets());
+                        break;
+                    case "Prehistoric PB&J":
+                        TryAddEntree(new PrehistoricPBJ());
+                        break;
+                    case "Pterodactyl Wings":
+                        TryAddEntree(new PterodactylWings());
+                        break;
+                    case "Steakosaurus Burger":
+                        TryAddEntree(new SteakosaurusBurger());
+                        break;
+                    case "T-Rex Kingburger":
+                        TryAddEntree(new TRexKingBurger());
+                        break;
+                    case "Veloci-Wrap":
+                        TryAddEntree(new VelociWrap());
+                        break;
+                }
+            }
+        }
+
+        private void TryAddEntree(Entree e)
+        {
+            if (entree == null)
+            {
+                Order order = (Order)DataContext;
+                entree = e;
+                order.Add(entree);
+
+                //TODO: ADD CODE FOR NAVIGATING TO EACH ENTREE CUSTOMIZATION PAGE
+            }
+            else
+            {
+                //Add code
+            }
+
+            /*
+            if (DataContext is Order order)
+            {
+                if (sender is FrameworkElement element)
+                    if (element.DataContext is IOrderItem item)
+                    {
+                        order.Items.Remove(item);
+                    }
+            }
+            */
+
+            //TODO: Select the entree in the order control.
+
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

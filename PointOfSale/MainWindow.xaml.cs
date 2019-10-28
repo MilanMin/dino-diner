@@ -29,8 +29,8 @@ namespace PointOfSale
             f.Size = DinoDiner.Menu.Size.Medium;
             Tyrannotea t = new Tyrannotea();
             t.AddLemon();
-            order.Items.Add(f);
-            order.Items.Add(t);
+            order.Add(f);
+            order.Add(t);
             OrderList.NavigationService = OrderInterface.NavigationService;
             
         }
@@ -59,6 +59,18 @@ namespace PointOfSale
                 element.DataContext = OrderInterface.DataContext;
             }
 
+        }
+
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            if (OrderInterface.NavigationService.CanGoBack)
+            {
+                OrderInterface.NavigationService.GoBack();
+            }
+            else
+            {
+                OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
 
 

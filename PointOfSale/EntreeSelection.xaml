@@ -18,13 +18,13 @@
                 </Style>
             </WrapPanel.Resources>
 
-            <Button>Brontowurst</Button>
-            <Button>Dino-Nuggets</Button>
-            <Button>Prehistoric PB&amp;J</Button>
-            <Button>Pterodactyl Wings</Button>
-            <Button>Steakosaurus Burger</Button>
-            <Button>T-Rex Kingburger</Button>
-            <Button>Veloci-Wrap</Button>
+            <Button Click="EntreeSelected">Brontowurst</Button>
+            <Button Click="EntreeSelected">Dino-Nuggets</Button>
+            <Button Click="EntreeSelected">Prehistoric PB&amp;J</Button>
+            <Button Click="EntreeSelected">Pterodactyl Wings</Button>
+            <Button Click="EntreeSelected">Steakosaurus Burger</Button>
+            <Button Click="EntreeSelected">T-Rex Kingburger</Button>
+            <Button Click="EntreeSelected">Veloci-Wrap</Button>
         </WrapPanel>
 
     </DockPanel>

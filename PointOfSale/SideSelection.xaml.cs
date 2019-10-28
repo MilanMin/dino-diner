@@ -102,16 +102,19 @@ namespace PointOfSale
         private void SizeSmall_Checked(object sender, RoutedEventArgs e)
         {
             Side.Size = DinoDiner.Menu.Size.Small;
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void SizeMedium_Checked(object sender, RoutedEventArgs e)
         {
             Side.Size = DinoDiner.Menu.Size.Medium;
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void SizeLarge_Checked(object sender, RoutedEventArgs e)
         {
             Side.Size = DinoDiner.Menu.Size.Large;
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

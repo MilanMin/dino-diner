@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 namespace DinoDiner.Menu
@@ -41,6 +42,13 @@ namespace DinoDiner.Menu
         /// The size of the combo.
         /// </summary>
         private Size size = Size.Small;
+
+        /// <summary>
+        /// The PropertyChanged Event Handler; Notifies of changes
+        /// to the Price, Description, and Special properties.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The public getter for the size of the combo.
         /// </summary>
