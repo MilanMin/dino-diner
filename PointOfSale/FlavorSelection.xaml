@@ -11,27 +11,24 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
         <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="20">Flavor</TextBlock>
-        <WrapPanel>
-            <WrapPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="MinWidth" Value="140"/>
-                    <Setter Property="Height" Value="140"/>
-                    <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
-                    <Setter Property="BorderThickness" Value="2"/>
-                </Style>
-                <Style TargetType="Image">
-                    <Setter Property="Width" Value="120"/>
-                    <Setter Property="Height" Value="120"/>
-                </Style>
-            </WrapPanel.Resources>
-            
-            <Button>Cherry</Button>
-            <Button>Chocolate</Button>
-            <Button>Cola</Button>
-            <Button>Lime</Button>
-            <Button>Orange</Button>
-            <Button>Root Beer</Button>
-            <Button>Vanilla</Button>
-        </WrapPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Click="FlavorSelected" Grid.Row="0" Grid.Column="0">Cherry</Button>
+            <Button Click="FlavorSelected" Grid.Row="0" Grid.Column="1">Chocolate</Button>
+            <Button Click="FlavorSelected" Grid.Row="0" Grid.Column="2">Cola</Button>
+            <Button Click="FlavorSelected" Grid.Row="1" Grid.Column="0">Lime</Button>
+            <Button Click="FlavorSelected" Grid.Row="1" Grid.Column="1">Orange</Button>
+            <Button Click="FlavorSelected" Grid.Row="1" Grid.Column="2">Root Beer</Button>
+            <Button Click="FlavorSelected" Grid.Row="2" Grid.Column="0">Vanilla</Button>
+        </Grid>
     </DockPanel>
 </Page>

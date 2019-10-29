@@ -21,6 +21,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        
         public NavigationService NavigationService { get; set; }
         public OrderControl()
         {
@@ -33,6 +34,16 @@ namespace PointOfSale
             {
 
                 NavigationService?.Navigate(new SideSelection(side));
+            }
+            if (((ListBox)sender).SelectedItem is Entree entree)
+            {
+
+                NavigationService?.Navigate(new EntreeSelection(entree));
+            }
+            if (((ListBox)sender).SelectedItem is Drink drink)
+            {
+
+                NavigationService?.Navigate(new DrinkSelection(drink));
             }
 
         }

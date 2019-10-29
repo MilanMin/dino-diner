@@ -9,24 +9,33 @@
       Title="DrinkSelection">
     <Viewbox Stretch="Uniform">
     <DockPanel>
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
-
-        <StackPanel DockPanel.Dock="Left">
-            <Button Click="DrinkChosen">Sodasaurus</Button>
-            <Button Click="DrinkChosen">Tyrannotea</Button>
-            <Button Click="DrinkChosen">Jurrasic Java</Button>
-            <Button Click="DrinkChosen">Water</Button>
-        </StackPanel>
-        <StackPanel DockPanel.Dock="Left">
-            <RadioButton>Small</RadioButton>
-            <RadioButton>Medium</RadioButton>
-            <RadioButton>Large</RadioButton>
-        </StackPanel>
-        <StackPanel DockPanel.Dock="Right">
-            <Button Click="SelectFlavor" x:Name="FlavorButton" Visibility="Hidden">Sweet/Decaf/Flavor</Button>
-            <Button Click="ToggleLemon" x:Name="LemonButton" Visibility="Collapsed">Add Lemon</Button>
-            <Button Click="ToggleIce" x:Name="IceButton" Visibility="Collapsed">Hold Ice</Button>
-        </StackPanel>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="15">Add To Order</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Name="SodasaurusBtn" Click="DrinkChosen" Grid.Column="0" Grid.Row="0">Sodasaurus</Button>
+                <Button Name="TyrannoteaBtn" Click="DrinkChosen" Grid.Column="0" Grid.Row="1">Tyrannotea</Button>
+                <Button Name="JurrasicJavaBtn" Click="DrinkChosen" Grid.Column="0" Grid.Row="2">Jurrasic Java</Button>
+                <Button Name="WaterBtn" Click="DrinkChosen" Grid.Column="0" Grid.Row="3">Water</Button>
+                <RadioButton GroupName="RB" Checked="OnSmallChecked" Grid.Column="1" Grid.Row="0">Small</RadioButton>
+                <RadioButton GroupName="RB" Checked="OnMediumChecked" Grid.Column="1" Grid.Row="1">Medium</RadioButton>
+                <RadioButton GroupName="RB" Checked="OnLargeChecked" Grid.Column="1" Grid.Row="2">Large</RadioButton>
+                <Button Click="SelectFlavor" x:Name="FlavorButton" Visibility="Hidden" Grid.Column="2" Grid.Row="0">Sweet/Decaf/Flavor</Button>
+                <Button Click="ToggleLemon" x:Name="LemonButton" Visibility="Hidden" Grid.Column="2" Grid.Row="1">Add Lemon</Button>
+                <Button Click="ToggleIce" x:Name="IceButton" Visibility="Hidden" Grid.Column="2" Grid.Row="2">Hold Ice</Button>
+                <Button Click="OnClickDone" Background="Green" Grid.Column="2" Grid.Row="4">Done</Button>
+            </Grid>
+        
     </DockPanel>
     </Viewbox>
 </Page>

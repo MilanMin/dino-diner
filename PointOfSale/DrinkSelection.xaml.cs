@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -23,13 +24,12 @@ namespace PointOfSale
         /// <summary>
         /// Stores the combo page that constructed this drink selection page (if applicable)
         /// </summary>
-        private CustomizeCombo c = null;
-        /*
-        private bool ice;
-        private bool lemon;
-        private bool sweet;
-        private bool decaf;
-        */
+        private CustomizeCombo c;
+
+        /// <summary>
+        /// Stores the drink that is associated with this class.
+        /// </summary>
+        public Drink drink;
 
         /// <summary>
         /// Constructs the drink selection page
@@ -37,6 +37,12 @@ namespace PointOfSale
         public DrinkSelection()
         {
             InitializeComponent();
+        }
+
+        public DrinkSelection(Drink d)
+        {
+            InitializeComponent();
+            drink = d;
         }
 
         /// <summary>
@@ -65,32 +71,70 @@ namespace PointOfSale
             switch ((string)b.Content)
             {
                 case "Sodasaurus":
+                    tryAddDrink(new Sodasaurus());
                     FlavorButton.Visibility = Visibility.Visible;
                     IceButton.Visibility = Visibility.Visible;
-                    LemonButton.Visibility = Visibility.Collapsed;
+                    LemonButton.Visibility = Visibility.Hidden;
 
                     FlavorButton.Content = "Flavor";
+                    IceButton.Content = "Hold Ice";
+                    disableAllDrinkButtons();
                     break;
                 case "Tyrannotea":
+                    tryAddDrink(new Tyrannotea());
                     FlavorButton.Visibility = Visibility.Visible;
                     IceButton.Visibility = Visibility.Visible;
                     LemonButton.Visibility = Visibility.Visible;
 
                     FlavorButton.Content = "Sweet";
+                    IceButton.Content = "Hold Ice";
+                    disableAllDrinkButtons();
                     break;
                 case "Jurrasic Java":
+                    tryAddDrink(new JurassicJava());
                     FlavorButton.Visibility = Visibility.Visible;
                     IceButton.Visibility = Visibility.Visible;
-                    LemonButton.Visibility = Visibility.Visible;
+                    LemonButton.Visibility = Visibility.Hidden;
 
                     FlavorButton.Content = "Decaf";
+                    IceButton.Content = "Add Ice";
+                    disableAllDrinkButtons();
                     break;
                 case "Water":
-                    FlavorButton.Visibility = Visibility.Collapsed;
+                    tryAddDrink(new Water());
+                    FlavorButton.Visibility = Visibility.Hidden;
                     IceButton.Visibility = Visibility.Visible;
                     LemonButton.Visibility = Visibility.Visible;
+                    IceButton.Content = "Hold Ice";
+                    disableAllDrinkButtons();
                     break;
             }
+        }
+
+        private void disableAllDrinkButtons()
+        {
+            SodasaurusBtn.IsEnabled = false;
+            JurrasicJavaBtn.IsEnabled = false;
+            TyrannoteaBtn.IsEnabled = false;
+            WaterBtn.IsEnabled = false;
+        }
+
+        private void tryAddDrink(Drink d)
+        {
+            if (drink == null)
+            {
+                Order order = (Order)DataContext;
+                drink = d;
+                order.Add(drink);
+            }
+            else
+            {
+                Order order = (Order)DataContext;
+                order.Remove(drink);
+                drink = d;
+                order.Add(drink);
+            }
+            
         }
 
         /// <summary>
@@ -105,6 +149,20 @@ namespace PointOfSale
             {
                 NavigationService.Navigate(new FlavorSelection(this));
             }
+            else if ((string)b.Content == "Sweet")
+            {
+                if(drink is Tyrannotea tea)
+                {
+                    tea.Sweet = true;
+                }
+            }
+            else if ((string)b.Content == "Decaf")
+            {
+                if(drink is JurassicJava java)
+                {
+                    java.Decaf = true;
+                }
+            }
             
         }
 
@@ -115,7 +173,14 @@ namespace PointOfSale
         /// <param name="e">The event arguments</param>
         private void ToggleLemon(object sender, RoutedEventArgs e)
         {
-
+            if(drink is Tyrannotea tea)
+            {
+                tea.AddLemon();
+            }
+            else if (drink is Water water)
+            {
+                water.AddLemon();
+            }
         }
 
         /// <summary>
@@ -125,7 +190,35 @@ namespace PointOfSale
         /// <param name="e">The event arguments</param>
         private void ToggleIce(object sender, RoutedEventArgs e)
         {
+            if(drink is JurassicJava java)
+            {
+                java.AddIce();
+            }
+            else
+            {
+                drink.HoldIce();
+            }
+            
+        }
 
+        private void OnSmallChecked(object sender, RoutedEventArgs e)
+        {
+            drink.Size = DinoDiner.Menu.Size.Small;
+        }
+
+        private void OnMediumChecked(object sender, RoutedEventArgs e)
+        {
+            drink.Size = DinoDiner.Menu.Size.Medium;
+        }
+
+        private void OnLargeChecked(object sender, RoutedEventArgs e)
+        {
+            drink.Size = DinoDiner.Menu.Size.Large;
+        }
+
+        private void OnClickDone(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

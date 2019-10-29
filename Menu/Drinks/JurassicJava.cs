@@ -13,13 +13,13 @@ namespace DinoDiner.Menu
     /// </summary>
     public class JurassicJava : Drink, INotifyPropertyChanged
     {
-
+        
         /// <summary>
         /// The PropertyChanged Event Handler; Notifies of changes
         /// to the Price, Description, and Special properties.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         //Helper function for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)
         {
@@ -55,9 +55,25 @@ namespace DinoDiner.Menu
         public bool RoomForCream { get; set; } = false;
 
         /// <summary>
+        /// Private backing variable for Decaf.
+        /// </summary>
+        private bool decaf = false;
+
+        /// <summary>
         /// Variable for whether or not the drink should be decaf.
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Creates a jurrasic java drink.
@@ -169,6 +185,12 @@ namespace DinoDiner.Menu
                 
             sb.Append("Jurassic Java");
             return sb.ToString();
+        }
+
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
         }
     }
 }

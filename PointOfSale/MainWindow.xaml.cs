@@ -24,13 +24,6 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            Order order = (Order)DataContext;
-            Fryceritops f = new Fryceritops();
-            f.Size = DinoDiner.Menu.Size.Medium;
-            Tyrannotea t = new Tyrannotea();
-            t.AddLemon();
-            order.Add(f);
-            order.Add(t);
             OrderList.NavigationService = OrderInterface.NavigationService;
             
         }

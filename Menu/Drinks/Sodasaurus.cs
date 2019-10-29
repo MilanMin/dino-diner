@@ -18,17 +18,34 @@ namespace DinoDiner.Menu
         /// The PropertyChanged Event Handler; Notifies of changes
         /// to the Price, Description, and Special properties.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         //Helper function for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        /// <summary>
+        /// Private backing variable for Flavor.
+        /// </summary>
+        private SodasaurusFlavor flavor;
+
         /// <summary>
         /// Contains the flavor for the sodasaurus drink.
         /// </summary>
-        public SodasaurusFlavor Flavor;
+        public SodasaurusFlavor Flavor
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Creates a sodasaurus.
@@ -127,6 +144,15 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Size} {Flavor} Sodasaurus";
+        }
+
+        /// <summary>
+        /// Holds the ice in a drink.
+        /// </summary>
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
         }
     }
 }

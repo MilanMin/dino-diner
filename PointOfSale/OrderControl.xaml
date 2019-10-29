@@ -11,6 +11,8 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBox Text="Order" TextAlignment="Center" Background="DarkOliveGreen"  Grid.Row="0"/>
@@ -36,10 +38,22 @@
         </ListBox>
         <Border Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Price:"/>
+                <TextBox Text="Subtotal Cost:"/>
+                <TextBlock Text="{Binding Path=SubtotalCost}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="Sales Tax Cost:"/>
+                <TextBlock Text="{Binding Path=SalesTaxCost}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="Total Cost:"/>
                 <TextBlock Text="{Binding Path=TotalCost}"/>
             </StackPanel>
         </Border>
-        <TextBox Text="Buttons Go Here" Grid.Row="3"/>
+        <TextBox Text="Buttons Go Here" Grid.Row="5"/>
     </Grid>
 </UserControl>

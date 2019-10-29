@@ -21,7 +21,7 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
-        private Side Side;
+        private Side side;
 
         private CustomizeCombo c = null;
         public SideSelection()
@@ -38,7 +38,7 @@ namespace PointOfSale
         public SideSelection(Side s)
         {
             InitializeComponent();
-            Side = s;
+            side = s;
         }
 
         private void SideChosen(object sender, RoutedEventArgs e)
@@ -71,15 +71,18 @@ namespace PointOfSale
         private void TryAddSide(Side s)
         {
 
-            if (Side == null)
+            if (side == null)
             {
                 Order order = (Order)DataContext;
-                Side = s;
-                order.Items.Add(Side);
+                side = s;
+                order.Add(side);
             }
             else
             {
-                //Add code
+                Order order = (Order)DataContext;
+                order.Remove(side);
+                side = s;
+                order.Add(side);
             }
             EnableSizeButtons();
         }
@@ -101,19 +104,19 @@ namespace PointOfSale
 
         private void SizeSmall_Checked(object sender, RoutedEventArgs e)
         {
-            Side.Size = DinoDiner.Menu.Size.Small;
+            side.Size = DinoDiner.Menu.Size.Small;
             NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void SizeMedium_Checked(object sender, RoutedEventArgs e)
         {
-            Side.Size = DinoDiner.Menu.Size.Medium;
+            side.Size = DinoDiner.Menu.Size.Medium;
             NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void SizeLarge_Checked(object sender, RoutedEventArgs e)
         {
-            Side.Size = DinoDiner.Menu.Size.Large;
+            side.Size = DinoDiner.Menu.Size.Large;
             NavigationService.Navigate(new MenuCategorySelection());
         }
     }

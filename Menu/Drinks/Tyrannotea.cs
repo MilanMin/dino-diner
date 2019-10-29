@@ -18,7 +18,7 @@ namespace DinoDiner.Menu
         /// The PropertyChanged Event Handler; Notifies of changes
         /// to the Price, Description, and Special properties.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         //Helper function for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)
@@ -51,9 +51,24 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Backing variable for Sweet.
+        /// </summary>
+        private bool sweet;
+        /// <summary>
         /// Contains the variable of whether or not the drink is sweet.
         /// </summary>
-        public bool Sweet { get; set; } = false;
+        public bool Sweet
+        {
+            get
+            {
+                return sweet;
+            }
+            set
+            {
+                sweet = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Contains the variable of whether or not the drink has a lemon.
@@ -168,6 +183,15 @@ namespace DinoDiner.Menu
 
             sb.Append("Tyrannotea");
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Holds the ice in a drink.
+        /// </summary>
+        public override void HoldIce()
+        {
+            Ice = false;
+            NotifyOfPropertyChange("Special");
         }
     }
 }

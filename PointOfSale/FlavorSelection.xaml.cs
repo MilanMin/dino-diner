@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -20,6 +21,8 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        private DrinkSelection drink;
+
         /// <summary>
         /// Constructs the flavor selection page
         /// </summary>
@@ -35,6 +38,44 @@ namespace PointOfSale
         public FlavorSelection(DrinkSelection d)
         {
             InitializeComponent();
+            drink = d;
+        }
+
+        private void FlavorSelected(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Sodasaurus soda = (Sodasaurus)drink.drink;
+            switch (button.Content)
+            {
+                case "Cherry":
+                    soda.Flavor = SodasaurusFlavor.Cherry;
+                    NavigationService.GoBack();
+                    break;
+                case "Chocolate":
+                    soda.Flavor = SodasaurusFlavor.Chocolate;
+                    NavigationService.GoBack();
+                    break;
+                case "Cola":
+                    soda.Flavor = SodasaurusFlavor.Cola;
+                    NavigationService.GoBack();
+                    break;
+                case "Lime":
+                    soda.Flavor = SodasaurusFlavor.Lime;
+                    NavigationService.GoBack();
+                    break;
+                case "Orange":
+                    soda.Flavor = SodasaurusFlavor.Orange;
+                    NavigationService.GoBack();
+                    break;
+                case "Root Beer":
+                    soda.Flavor = SodasaurusFlavor.RootBeer;
+                    NavigationService.GoBack();
+                    break;
+                case "Vanilla":
+                    soda.Flavor = SodasaurusFlavor.Vanilla;
+                    NavigationService.GoBack();
+                    break;
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace MenuTest
             Order o = new Order();
             JurassicJava j = new JurassicJava();
             j.Price = -30;
-            o.Items.Add(j);
+            o.Add(j);
             Assert.True(o.SubtotalCost >= 0, "The subtotal cost was negative.");
         }
 
@@ -28,11 +28,11 @@ namespace MenuTest
             Order o = new Order();
             JurassicJava j = new JurassicJava();
             j.Size = Size.Large;
-            o.Items.Add(j);
+            o.Add(j);
             Brontowurst b = new Brontowurst();
-            o.Items.Add(b);
+            o.Add(b);
             Fryceritops f = new Fryceritops();
-            o.Items.Add(f);
+            o.Add(f);
 
             Assert.Equal(7.84, o.SubtotalCost, 2);
             Assert.Equal(.5096, o.SalesTaxCost, 2);

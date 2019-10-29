@@ -53,14 +53,11 @@ namespace DinoDiner.Menu
         /// The PropertyChanged Event Handler; Notifies of changes
         /// to the Price, Description, and Special properties.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public abstract event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Holds the ice in a drink.
         /// </summary>
-        public void HoldIce()
-        {
-            Ice = false;
-        }
+        public abstract void HoldIce();
     }
 }

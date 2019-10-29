@@ -22,6 +22,11 @@ namespace PointOfSale
     public partial class EntreeSelection : Page
     {
         /// <summary>
+        /// Stores the combo page that constructed this drink selection page (if applicable)
+        /// </summary>
+        private CustomizeCombo c;
+
+        /// <summary>
         /// Contains the entree chosen
         /// </summary>
         private Entree entree;
@@ -34,16 +39,28 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public EntreeSelection(Entree e)
+        {
+            InitializeComponent();
+            entree = e;
+        }
+
+        public EntreeSelection(CustomizeCombo C)
+        {
+            InitializeComponent();
+            c = C;
+        }
+
         private void EntreeSelected(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
             {
-                /*
+                
                 if (c != null)
                 {
-                    c.Side = (string)b.Content;
+                    c.Side = (string)button.Content;
                 }
-                */
+                
                 Order order = (Order)DataContext;
                 switch ((string)button.Content)
                 {
@@ -79,26 +96,19 @@ namespace PointOfSale
                 Order order = (Order)DataContext;
                 entree = e;
                 order.Add(entree);
-
+                
                 //TODO: ADD CODE FOR NAVIGATING TO EACH ENTREE CUSTOMIZATION PAGE
             }
             else
             {
-                //Add code
+                Order order = (Order)DataContext;
+                order.Remove(entree);
+                entree = e;
+                order.Add(entree);
             }
 
-            /*
-            if (DataContext is Order order)
-            {
-                if (sender is FrameworkElement element)
-                    if (element.DataContext is IOrderItem item)
-                    {
-                        order.Items.Remove(item);
-                    }
-            }
-            */
-
-            //TODO: Select the entree in the order control.
+            MainWindow mw = (MainWindow)Application.Current.MainWindow;
+            mw.OrderList.OrderItems.SelectedItem = entree;
 
             NavigationService.Navigate(new MenuCategorySelection());
         }
