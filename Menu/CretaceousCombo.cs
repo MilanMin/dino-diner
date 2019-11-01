@@ -49,6 +49,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// The public getter for the size of the combo.
         /// </summary>
@@ -64,6 +68,9 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = size;
                 Side.Size = size;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
             }
         }
         /// <summary>
