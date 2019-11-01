@@ -8,9 +8,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuTest", "MenuTest\MenuTest.csproj", "{28FA195A-1488-4A0E-AD40-F1133624DD80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{9FABDA8A-4F96-4763-A7C3-41AC367CE151}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2F5F801D-C838-4C96-A2BE-A40C4DFFB719} = {2F5F801D-C838-4C96-A2BE-A40C4DFFB719}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
