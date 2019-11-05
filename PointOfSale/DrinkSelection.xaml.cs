@@ -125,14 +125,35 @@ namespace PointOfSale
             {
                 Order order = (Order)DataContext;
                 drink = d;
-                order.Add(drink);
+                if(c == null)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    c.combo.Drink = drink;
+                }
+                
             }
             else
             {
                 Order order = (Order)DataContext;
-                order.Remove(drink);
+                if (c == null)
+                {
+                    order.Remove(drink);
+                }
+                
                 drink = d;
-                order.Add(drink);
+
+                if (c == null)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    c.combo.Drink = drink;
+                }
+                
             }
             
         }
@@ -218,7 +239,15 @@ namespace PointOfSale
 
         private void OnClickDone(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (c == null)
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
+            
         }
     }
 }

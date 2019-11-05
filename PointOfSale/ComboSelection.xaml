@@ -22,46 +22,46 @@
                     <Setter Property="Height" Value="120"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button Click="EntreeSelected">
+            <Button Name="BrontowurstCombo" Click="EntreeSelected">
                 <StackPanel>
                     <Image Source="Assets/DinoDiner-01.png"/>
                     <TextBlock>Brontowurst Combo</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Click="EntreeSelected">
+            <Button Name="DinoNuggetsCombo" Click="EntreeSelected">
                 <StackPanel>
                     <Image Source="Assets/DinoDiner-02.png"/>
                     <TextBlock>Dino-Nuggets Combo</TextBlock>
                 </StackPanel>
             </Button>
-            <Button Click="EntreeSelected">
+            <Button Name="SteakosaurusBurgerCombo" Click="EntreeSelected">
                 <DockPanel>
                     <Image DockPanel.Dock="Top" Source="Assets/DinoDiner-05.png"/>
                     <TextBlock DockPanel.Dock="Bottom">Steakosaurus Burger Combo</TextBlock>
                 </DockPanel>
             </Button>
-            <Button Click="EntreeSelected">
+            <Button Name="TRexKingBurgerCombo" Click="EntreeSelected">
                 <DockPanel>
                     <Image DockPanel.Dock="Top" Source="Assets/DinoDiner-06.png"/>
                     <TextBlock DockPanel.Dock="Bottom">T-Rex King Burger Combo</TextBlock>
                 </DockPanel>
 
             </Button>
-            <Button Click="EntreeSelected">
+            <Button Name="PterodactlyWingsCombo" Click="EntreeSelected">
                 <DockPanel>
                     <Image DockPanel.Dock="Top" Source="Assets/DinoDiner-04.png"/>
                     <TextBlock DockPanel.Dock="Bottom">Pterodactyl Wings Combo</TextBlock>
                 </DockPanel>
 
             </Button>
-            <Button Click="EntreeSelected">
+            <Button Name="PrehistoricPBJCombo" Click="EntreeSelected">
                 <DockPanel>
                     <Image DockPanel.Dock="Top" Source="Assets/DinoDiner-03.png"/>
                     <TextBlock DockPanel.Dock="Bottom">Prehistoric PB&amp;J Combo</TextBlock>
                 </DockPanel>
 
             </Button>
-            <Button Click="EntreeSelected">
+            <Button Name="VelociWrapCombo" Click="EntreeSelected">
                 <DockPanel>
                     <Image DockPanel.Dock="Top" Source="Assets/DinoDiner-07.png"/>
                     <TextBlock DockPanel.Dock="Bottom">Veloci-Wrap Combo</TextBlock>

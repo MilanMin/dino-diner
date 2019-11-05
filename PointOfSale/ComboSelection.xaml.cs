@@ -35,8 +35,14 @@ namespace PointOfSale
         /// <param name="e">The event arguments</param>
         private void EntreeSelected(object sender, RoutedEventArgs e)
         {
-            
+            /*
+            Button button = (Button)sender;
+            if (button.Name == "BrontowurstCombo")
+            {
+
+            }
             NavigationService.Navigate(new CustomizeCombo());
+            */
         }
     }
 }

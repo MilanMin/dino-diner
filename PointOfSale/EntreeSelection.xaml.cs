@@ -21,10 +21,8 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
-        /// <summary>
-        /// Stores the combo page that constructed this drink selection page (if applicable)
-        /// </summary>
-        private CustomizeCombo c;
+
+        private bool isForCombo = false;
 
         /// <summary>
         /// Contains the entree chosen
@@ -45,22 +43,16 @@ namespace PointOfSale
             entree = e;
         }
 
-        public EntreeSelection(CustomizeCombo C)
+        public EntreeSelection(bool b)
         {
             InitializeComponent();
-            c = C;
+            isForCombo = true;
         }
 
         private void EntreeSelected(object sender, RoutedEventArgs e)
         {
             if (sender is Button button)
             {
-                
-                if (c != null)
-                {
-                    c.Side = (string)button.Content;
-                }
-                
                 Order order = (Order)DataContext;
                 switch ((string)button.Content)
                 {
@@ -95,22 +87,38 @@ namespace PointOfSale
             {
                 Order order = (Order)DataContext;
                 entree = e;
-                order.Add(entree);
-                
-                //TODO: ADD CODE FOR NAVIGATING TO EACH ENTREE CUSTOMIZATION PAGE
+                if (!isForCombo)
+                {
+                    order.Add(entree);
+                }
+                 
             }
             else
             {
                 Order order = (Order)DataContext;
-                order.Remove(entree);
+                if (!isForCombo)
+                {
+                    order.Remove(entree);
+                    
+                }
+                   
                 entree = e;
-                order.Add(entree);
+                if (!isForCombo)
+                {
+                    order.Add(entree);
+                }
+                  
             }
+            CustomizeEntree ce = new CustomizeEntree(entree, isForCombo);
+            ce.DataContext = this.DataContext;
+            NavigationService.Navigate(ce);
 
+            /*
             MainWindow mw = (MainWindow)Application.Current.MainWindow;
             mw.OrderList.OrderItems.SelectedItem = entree;
 
             NavigationService.Navigate(new MenuCategorySelection());
+            */
         }
     }
 }

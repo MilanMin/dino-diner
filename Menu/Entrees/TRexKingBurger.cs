@@ -49,6 +49,7 @@ namespace DinoDiner.Menu
                 if (!tomato) special.Add("Hold Tomato");
                 if (!mustard) special.Add("Hold Mustard");
                 if (!mayo) special.Add("Hold Mayo");
+                if (!onion) special.Add("Hold Onion");
                 return special.ToArray();
             }
         }

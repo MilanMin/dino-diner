@@ -1,0 +1,50 @@
+﻿<Page x:Class="PointOfSale.CustomizeEntree"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="CustomizeEntree">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Visibility="Hidden" Name="BrontowurstHoldBun" Click="OnBrontowurstHoldBun" Grid.Row="0">Hold Bun</Button>
+        <Button Visibility="Hidden" Name="BrontowurstHoldPeppers" Click="OnBrontowurstHoldPeppers" Grid.Row="0" Grid.Column="1">Hold Peppers</Button>
+        <Button Visibility="Hidden" Name="BrontowurstHoldOnions" Click="OnBrontowurstHoldOnions" Grid.Row="0" Grid.Column="2">Hold Onions</Button>
+
+        <Button Visibility="Hidden" Name="DinoNuggetsAddNugget" Click="OnDinoNuggetsAddNugget" Grid.Row="0" Grid.Column="0">Add Nugget</Button>
+
+        <Button Visibility="Hidden" Name="SteakosaurusBurgerHoldBun" Click="OnSteakosaurusBurgerHoldBun" Grid.Row="0" Grid.Column="0">Hold Bun</Button>
+        <Button Visibility="Hidden" Name="SteakosaurusBurgerHoldPickle" Click="OnSteakosaurusBurgerHoldPickle" Grid.Row="0" Grid.Column="1">Hold Pickle</Button>
+        <Button Visibility="Hidden" Name="SteakosaurusBurgerHoldKetchup" Click="OnSteakosaurusBurgerHoldKetchup" Grid.Row="0" Grid.Column="2">Hold Ketchup</Button>
+        <Button Visibility="Hidden" Name="SteakosaurusBurgerHoldMustard" Click="OnSteakosaurusBurgerHoldMustard" Grid.Row="1" Grid.Column="0">Hold Mustard</Button>
+
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldBun" Click="OnTRexKingBurgerHoldBun" Grid.Row="0" Grid.Column="0">Hold Bun</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldLettuce" Click="OnTRexKingBurgerHoldLettuce" Grid.Row="0" Grid.Column="1">Hold Lettuce</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldTomato" Click="OnTRexKingBurgerHoldTomato" Grid.Row="0" Grid.Column="2">Hold Tomato</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldOnion" Click="OnTRexKingBurgerHoldOnion" Grid.Row="1" Grid.Column="0">Hold Onion</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldPickle" Click="OnTRexKingBurgerHoldPickle" Grid.Row="1" Grid.Column="1">Hold Pickle</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldKetchup" Click="OnTRexKingBurgerHoldKetchup" Grid.Row="1" Grid.Column="2">Hold Ketchup</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldMustard" Click="OnTRexKingBurgerHoldMustard" Grid.Row="2" Grid.Column="0">Hold Mustard</Button>
+        <Button Visibility="Hidden" Name="TRexKingBurgerHoldMayo" Click="OnTRexKingBurgerHoldMayo" Grid.Row="2" Grid.Column="1">Hold Mayo</Button>
+
+        <Button Visibility="Hidden" Name="VelociWrapHoldDressing" Click="OnVelociWrapHoldDressing" Grid.Row="0" Grid.Column="0">Hold Dressing</Button>
+        <Button Visibility="Hidden" Name="VelociWrapHoldLettuce" Click="OnVelociWrapHoldLettuce" Grid.Row="0" Grid.Column="1">Hold Lettuce</Button>
+        <Button Visibility="Hidden" Name="VelociWrapHoldCheese" Click="OnVelociWrapHoldCheese" Grid.Row="0" Grid.Column="2">Hold Cheese</Button>
+
+        <Button Visibility="Hidden" Name="PBJHoldJelly"  Click="OnHoldJelly" Grid.Row="0">Hold Jelly</Button>
+        <Button Visibility="Hidden" Name="PBJHoldPeanutButter" Click="OnHoldPeanutButter" Grid.Row="0" Grid.Column="1">Hold Peanut Butter</Button>
+        <Button Click="OnDone" Grid.Row="2" Grid.Column="2" Background="Green">Done</Button>
+    </Grid>
+</Page>

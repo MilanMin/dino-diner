@@ -24,15 +24,16 @@ namespace PointOfSale
         private Side side;
 
         private CustomizeCombo c = null;
+
         public SideSelection()
         {
             InitializeComponent();
         }
 
-        public SideSelection(CustomizeCombo C)
+        public SideSelection(CustomizeCombo c)
         {
             InitializeComponent();
-            c = C;
+            this.c = c;
         }
 
         public SideSelection(Side s)
@@ -44,9 +45,6 @@ namespace PointOfSale
         private void SideChosen(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            if (c!= null){
-                c.Side = (string)b.Content;
-            }
             Order order = (Order)DataContext;
             switch ((string)b.Content)
             {
@@ -75,14 +73,34 @@ namespace PointOfSale
             {
                 Order order = (Order)DataContext;
                 side = s;
-                order.Add(side);
+                if (c == null)
+                {
+                    order.Add(side);
+                }
+                else
+                {
+                    c.combo.Side = side;
+                }
+                  
             }
             else
             {
                 Order order = (Order)DataContext;
-                order.Remove(side);
+                if (c == null)
+                {
+                    order.Remove(side);
+                }
+                  
                 side = s;
-                order.Add(side);
+                if (c == null)
+                {
+                    order.Add(side);
+                }
+                else
+                {
+                    c.combo.Side = side;
+                }
+                  
             }
             EnableSizeButtons();
         }
@@ -105,19 +123,31 @@ namespace PointOfSale
         private void SizeSmall_Checked(object sender, RoutedEventArgs e)
         {
             side.Size = DinoDiner.Menu.Size.Small;
-            NavigationService.Navigate(new MenuCategorySelection());
+            returnToProperPage();
         }
 
         private void SizeMedium_Checked(object sender, RoutedEventArgs e)
         {
             side.Size = DinoDiner.Menu.Size.Medium;
-            NavigationService.Navigate(new MenuCategorySelection());
+            returnToProperPage();
         }
 
         private void SizeLarge_Checked(object sender, RoutedEventArgs e)
         {
             side.Size = DinoDiner.Menu.Size.Large;
-            NavigationService.Navigate(new MenuCategorySelection());
+            returnToProperPage();
+        }
+
+        private void returnToProperPage()
+        {
+            if (c == null)
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

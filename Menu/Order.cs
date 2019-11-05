@@ -84,17 +84,8 @@ namespace DinoDiner.Menu
 
         public Order()
         {
-            //Items.CollectionChanged += OnCollectionChanged;
-        }
 
-        /*
-        private void OnCollectionChanged(object sender, EventArgs args)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
         }
-        */
 
         /// <summary>
         /// Adds a new item to our order.
@@ -121,11 +112,19 @@ namespace DinoDiner.Menu
             return removed;
         }
 
+        /// <summary>
+        /// When a property is changed, multiple notifications should be sent out.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="args">The arguments.</param>
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             NotifyOfAllPropertiesChanged();
         }
 
+        /// <summary>
+        /// Notifies for all property changes.
+        /// </summary>
         protected void NotifyOfAllPropertiesChanged()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));

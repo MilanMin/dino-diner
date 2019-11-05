@@ -18,14 +18,45 @@ namespace DinoDiner.Menu
         /// The entree in the combo.
         /// </summary>
         public Entree Entree { get; set; }
+        private Drink drink;
         /// <summary>
         /// The drink in the combo.
         /// </summary>
-        public Drink Drink { get; set; }
+        public Drink Drink
+        {
+            get
+            {
+                return drink;
+            }
+            set
+            {
+                drink = value;
+                drink.PropertyChanged += this.PropertyChanged;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
+            }
+        }
+
+        private Side side;
         /// <summary>
         /// The side in the combo.
         /// </summary>
-        public Side Side { get; set; }
+        public Side Side
+        {
+            get
+            {
+                return side;
+            }
+            set
+            {
+                side = value;
+                side.PropertyChanged += this.PropertyChanged;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");
+            }
+        }
 
         /// <summary>
         /// Constructor for the combo.
@@ -142,7 +173,7 @@ namespace DinoDiner.Menu
                 special.Add(Side.ToString());
                 special.AddRange(Side.Special);
                 special.Add(Drink.ToString());
-                special.AddRange(Side.Special);
+                special.AddRange(Drink.Special);
                 return special.ToArray();
             }
         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -20,6 +21,8 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+        public CretaceousCombo combo;
+
         /// <summary>
         /// Stores the text for the side button
         /// </summary>
@@ -63,9 +66,19 @@ namespace PointOfSale
         /// <summary>
         /// Constructs the customizecombo page
         /// </summary>
-        public CustomizeCombo()
+        public CustomizeCombo(Entree entree)
         {
             InitializeComponent();
+            //Order order = (Order)DataContext;
+            //combo = new CretaceousCombo(entree);
+            //order.Add(combo);
+        }
+
+        public void CreateCombo(Entree entree)
+        {
+            Order order = (Order)DataContext;
+            combo = new CretaceousCombo(entree);
+            order.Add(combo);
         }
 
         /// <summary>
@@ -86,6 +99,41 @@ namespace PointOfSale
         private void SelectDrink(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new DrinkSelection(this));
+        }
+        
+        /// <summary>
+        /// Runs when the small size radio button is checked.
+        /// </summary>
+        /// <param name="sender">The small size radio button</param>
+        /// <param name="e">The event arguments</param>
+        private void OnSmallChecked(object sender, RoutedEventArgs e)
+        {
+            combo.Size = DinoDiner.Menu.Size.Small;
+        }
+
+        /// <summary>
+        /// Runs when the medium size radio button is checked.
+        /// </summary>
+        /// <param name="sender">The medium size radio button</param>
+        /// <param name="e">The event arguments</param>
+        private void OnMediumChecked(object sender, RoutedEventArgs e)
+        {
+            combo.Size = DinoDiner.Menu.Size.Medium;
+        }
+
+        /// <summary>
+        /// Runs when the large size radio button is checked.
+        /// </summary>
+        /// <param name="sender">The large size radio button</param>
+        /// <param name="e">The event arguments</param>
+        private void OnLargeChecked(object sender, RoutedEventArgs e)
+        {
+            combo.Size = DinoDiner.Menu.Size.Large;
+        }
+
+        private void OnDone(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

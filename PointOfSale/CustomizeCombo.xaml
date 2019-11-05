@@ -7,31 +7,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomizeCombo">
-
-    <Viewbox Stretch="Uniform">
-    <DockPanel>
-        <DockPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="120"/>
-                <Setter Property="Height" Value="120"/>
-            </Style>
-        </DockPanel.Resources>
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25">Add To Order</TextBlock>
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="20">Customize Combo</TextBlock>
-        <StackPanel DockPanel.Dock="Left">
-            <TextBlock FontSize="20" TextAlignment="Center">Side</TextBlock>
-            <Button Click="SelectSide" x:Name="CustomizeComboSideButton">PICK SIDE</Button>
-        </StackPanel>
-        <StackPanel DockPanel.Dock="Left">
-            <TextBlock FontSize="20" TextAlignment="Center">Size</TextBlock>
-            <RadioButton>Small</RadioButton>
-            <RadioButton>Medium</RadioButton>
-            <RadioButton>Large</RadioButton>
-        </StackPanel>
-        <StackPanel DockPanel.Dock="Right">
-            <TextBlock FontSize="20" TextAlignment="Center">Drink</TextBlock>
-            <Button Click="SelectDrink" x:Name="CustomizeComboDrinkButton">PICK DRINK</Button>
-        </StackPanel>
-    </DockPanel>
-    </Viewbox>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width=".5*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="25" Grid.ColumnSpan="4">Add To Order</TextBlock>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="20" Grid.Row="1" Grid.ColumnSpan="4">Customize Combo</TextBlock>
+        <TextBlock FontSize="20" TextAlignment="Center" Grid.Row="2">Side</TextBlock>
+        <Button Click="SelectSide" x:Name="CustomizeComboSideButton" Grid.Row="3" Grid.RowSpan="3">PICK SIDE</Button>
+        <TextBlock FontSize="20" TextAlignment="Center" Grid.Row="2" Grid.Column="1">Size</TextBlock>
+        <RadioButton GroupName="RB" Checked="OnSmallChecked" Grid.Row="3" Grid.Column="1">Small</RadioButton>
+        <RadioButton GroupName="RB" Checked="OnMediumChecked" Grid.Row="4" Grid.Column="1">Medium</RadioButton>
+        <RadioButton GroupName="RB" Checked="OnLargeChecked" Grid.Row="5" Grid.Column="1">Large</RadioButton>
+        <TextBlock FontSize="20" TextAlignment="Center" Grid.Row="2" Grid.Column="2">Drink</TextBlock>
+        <Button Click="SelectDrink" x:Name="CustomizeComboDrinkButton" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3">PICK DRINK</Button>
+        <Button Click="OnDone" Grid.Row="5" Grid.Column="5" Background="Green">Done</Button>
+    </Grid>
 </Page>

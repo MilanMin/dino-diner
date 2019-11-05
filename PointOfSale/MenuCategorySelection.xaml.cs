@@ -35,7 +35,7 @@ namespace PointOfSale
         /// <param name="e">The event arguments</param>
         private void SelectCombo(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ComboSelection());
+            NavigationService.Navigate(new EntreeSelection(true));
         }
 
         /// <summary>
