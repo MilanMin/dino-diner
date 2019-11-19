@@ -3,6 +3,8 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('../images/DinoDiner-32.png');
+    background-size: cover;
 }
 
 /* Wrapping element */
@@ -12,3 +14,16 @@ body {
     padding-right: 15px;
 }
 
+.menu-item{
+    margin: 5px;
+    padding-bottom: 5px;
+    border: 1px solid grey;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+}

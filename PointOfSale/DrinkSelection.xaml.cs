@@ -75,6 +75,7 @@ namespace PointOfSale
                     FlavorButton.Visibility = Visibility.Visible;
                     IceButton.Visibility = Visibility.Visible;
                     LemonButton.Visibility = Visibility.Hidden;
+                    CreamButton.Visibility = Visibility.Hidden;
 
                     FlavorButton.Content = "Flavor";
                     IceButton.Content = "Hold Ice";
@@ -85,6 +86,7 @@ namespace PointOfSale
                     FlavorButton.Visibility = Visibility.Visible;
                     IceButton.Visibility = Visibility.Visible;
                     LemonButton.Visibility = Visibility.Visible;
+                    CreamButton.Visibility = Visibility.Hidden;
 
                     FlavorButton.Content = "Sweet";
                     IceButton.Content = "Hold Ice";
@@ -95,6 +97,7 @@ namespace PointOfSale
                     FlavorButton.Visibility = Visibility.Visible;
                     IceButton.Visibility = Visibility.Visible;
                     LemonButton.Visibility = Visibility.Hidden;
+                    CreamButton.Visibility = Visibility.Visible;
 
                     FlavorButton.Content = "Decaf";
                     IceButton.Content = "Add Ice";
@@ -105,6 +108,8 @@ namespace PointOfSale
                     FlavorButton.Visibility = Visibility.Hidden;
                     IceButton.Visibility = Visibility.Visible;
                     LemonButton.Visibility = Visibility.Visible;
+                    CreamButton.Visibility = Visibility.Hidden;
+
                     IceButton.Content = "Hold Ice";
                     disableAllDrinkButtons();
                     break;
@@ -220,6 +225,20 @@ namespace PointOfSale
                 drink.HoldIce();
             }
             
+        }
+
+        /// <summary>
+        /// Runs when Leave Room For Cream is clicked
+        /// </summary>
+        /// <param name="sender">The button that was clicked</param>
+        /// <param name="e">The event arguments</param>
+        private void ToggleCream(object sender, RoutedEventArgs e)
+        {
+            if (drink is JurassicJava java)
+            {
+                java.LeaveRoomForCream();
+            }
+
         }
 
         private void OnSmallChecked(object sender, RoutedEventArgs e)

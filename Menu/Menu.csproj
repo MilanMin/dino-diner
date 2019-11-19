@@ -5,4 +5,12 @@
     <RootNamespace>DinoDiner.Menu</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Index1.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Index1.cshtml" />
+  </ItemGroup>
+
 </Project>

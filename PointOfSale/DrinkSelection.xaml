@@ -33,6 +33,7 @@
                 <Button Click="SelectFlavor" x:Name="FlavorButton" Visibility="Hidden" Grid.Column="2" Grid.Row="0">Sweet/Decaf/Flavor</Button>
                 <Button Click="ToggleLemon" x:Name="LemonButton" Visibility="Hidden" Grid.Column="2" Grid.Row="1">Add Lemon</Button>
                 <Button Click="ToggleIce" x:Name="IceButton" Visibility="Hidden" Grid.Column="2" Grid.Row="2">Hold Ice</Button>
+                <Button Click="ToggleCream" x:Name="CreamButton" Visibility="Hidden" Grid.Column="2" Grid.Row="3">Leave Room For Cream</Button>
                 <Button Click="OnClickDone" Background="Green" Grid.Column="2" Grid.Row="4">Done</Button>
             </Grid>
         
