@@ -27,3 +27,7 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.reallySmallWords{
+    font-size: 1px;
+}

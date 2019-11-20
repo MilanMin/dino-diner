@@ -9,231 +9,79 @@
 
 <h2>Combos</h2>
 <div id="container">
-    <div class="menu-item">
-        <h4>Brontowurst Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
-    <div class="menu-item">
-        <h4>DinoNuggets Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
-    <div class="menu-item">
-        <h4>PrehistoricPBJ Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
-    <div class="menu-item">
-        <h4>PterodactylWings Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
-    <div class="menu-item">
-        <h4>SteakosaurusBurger Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
-    <div class="menu-item">
-        <h4>TRexKingBurger Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
-    <div class="menu-item">
-        <h4>VelociWrap Combo</h4>
-        <h5>Price: $0.25 discount! (Price depends on side and drink)</h5>
-        <h5>Calories: Varies based on side and drink</h5>
-        <h5>Ingredients: Varies based on side and drink</h5>
-    </div>
+    @for (int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
+    {
+        <div class="menu-item">
+            <h4>@Model.Menu.AvailableCombos[i].ToString()*</h4>
+            <h5>Price: @Model.Menu.AvailableCombos[i].Price</h5>
+            <h5>Calories: @Model.Menu.AvailableCombos[i].Calories</h5>
+            <h5>
+                Ingredients:
+                @for (int j = 0; j < @Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
+                {
+                    <h6>@Model.Menu.AvailableCombos[i].Ingredients[j]</h6>
+                }
+            </h5>
+        </div>
+    }
 </div>
 
 
 <h2>Entrees</h2>
-@{
-    var Brontowurst = new DinoDiner.Menu.Brontowurst();
-    var DinoNuggets = new DinoDiner.Menu.DinoNuggets();
-    var PrehistoricPBJ = new DinoDiner.Menu.PrehistoricPBJ();
-    var PterodactylWings = new DinoDiner.Menu.PterodactylWings();
-    var SteakosaurusBurger = new DinoDiner.Menu.SteakosaurusBurger();
-    var TRexKingBurger = new DinoDiner.Menu.TRexKingBurger();
-    var VelociWrap = new DinoDiner.Menu.VelociWrap();
-}
 <div id="container">
-    <div class="menu-item">
-
-        <h4>Brontowurst</h4>
-        <h5>Price: $@Brontowurst.Price</h5>
-        <h5>Calories: @Brontowurst.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in @Brontowurst.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>DinoNuggets</h4>
-        <h5>Price: $@DinoNuggets.Price</h5>
-        <h5>Calories: @DinoNuggets.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in DinoNuggets.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Prehistoric PB&amp;</h4>
-        <h5>Price: $@PrehistoricPBJ.Price</h5>
-        <h5>Calories: @PrehistoricPBJ.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in PrehistoricPBJ.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Pterodactyl Wings</h4>
-        <h5>Price: $@PterodactylWings.Price</h5>
-        <h5>Calories: @PterodactylWings.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in PterodactylWings.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Steakosaurus Burger</h4>
-        <h5>Price: $@SteakosaurusBurger.Price</h5>
-        <h5>Calories: @SteakosaurusBurger.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in SteakosaurusBurger.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>T-Rex King Burger</h4>
-        <h5>Price: $@TRexKingBurger.Price</h5>
-        <h5>Calories: @TRexKingBurger.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in TRexKingBurger.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Veloci Wrap</h4>
-        <h5>Price: $@VelociWrap.Price</h5>
-        <h5>Calories: @VelociWrap.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in VelociWrap.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
+    @for (int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
+    {
+        <div class="menu-item">
+            <h4>@Model.Menu.AvailableEntrees[i].ToString()</h4>
+            <h5>Price: @Model.Menu.AvailableEntrees[i].Price</h5>
+            <h5>Calories: @Model.Menu.AvailableEntrees[i].Calories</h5>
+            <h5>
+                Ingredients:
+                @for (int j = 0; j < @Model.Menu.AvailableEntrees[i].Ingredients.Count; j++)
+                {
+                    <h6>@Model.Menu.AvailableEntrees[i].Ingredients[j]</h6>
+                }
+            </h5>
+        </div>
+    }
 </div>
 
 <h2>Sides</h2>
-@{
-    var Fryceritops = new DinoDiner.Menu.Fryceritops();
-    var MeteorMacAndCheese = new DinoDiner.Menu.MeteorMacAndCheese();
-    var MezzorellaSticks = new DinoDiner.Menu.MezzorellaSticks();
-    var Triceritots = new DinoDiner.Menu.Triceritots();
-}
 <div id="container">
-    <div class="menu-item">
-        <h4>Fryceritops</h4>
-        <h5>Price: $@Fryceritops.Price</h5>
-        <h5>Calories: @Fryceritops.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in Fryceritops.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Meteor Mac And Cheese</h4>
-        <h5>Price: $@MeteorMacAndCheese.Price</h5>
-        <h5>Calories: @MeteorMacAndCheese.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in MeteorMacAndCheese.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Mezzorella Sticks</h4>
-        <h5>Price: $@MezzorellaSticks.Price</h5>
-        <h5>Calories: @MezzorellaSticks.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in MezzorellaSticks.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Triceritots</h4>
-        <h5>Price: $@Triceritots.Price</h5>
-        <h5>Calories: @Triceritots.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in Triceritots.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
+    @for (int i = 0; i < Model.Menu.AvailableSides.Count; i++)
+    {
+        <div class="menu-item">
+            <h4>@Model.Menu.AvailableSides[i].ToString()</h4>
+            <h5>Price: @Model.Menu.AvailableSides[i].Price</h5>
+            <h5>Calories: @Model.Menu.AvailableSides[i].Calories</h5>
+            <h5>
+                Ingredients:
+                @for (int j = 0; j < @Model.Menu.AvailableSides[i].Ingredients.Count; j++)
+                {
+                    <h6>@Model.Menu.AvailableSides[i].Ingredients[j]</h6>
+                }
+            </h5>
+        </div>
+    }
 </div>
 
 <h2>Drinks</h2>
-@{
-    var JurassicJava = new DinoDiner.Menu.JurassicJava();
-    var Sodasaurus = new DinoDiner.Menu.Sodasaurus();
-    var Tyrannotea = new DinoDiner.Menu.Tyrannotea();
-    var Water = new DinoDiner.Menu.Water();
-}
 <div id="container">
-    <div class="menu-item">
-        <h4>Jurassic Java</h4>
-        <h5>Price: $@JurassicJava.Price</h5>
-        <h5>Calories: @JurassicJava.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in JurassicJava.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Sodasaurus</h4>
-        <h5>Price: $@Sodasaurus.Price</h5>
-        <h5>Calories: @Sodasaurus.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in Sodasaurus.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Tyrannotea</h4>
-        <h5>Price: $@Tyrannotea.Price</h5>
-        <h5>Calories: @Tyrannotea.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in Tyrannotea.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
-    <div class="menu-item">
-        <h4>Water</h4>
-        <h5>Price: $@Water.Price</h5>
-        <h5>Calories: @Water.Calories</h5>
-        <h5>Ingredients:</h5>
-        @foreach (string s in Water.Ingredients)
-        {
-            <h6>@s</h6>
-        }
-    </div>
+    @for (int i = 0; i < Model.Menu.AvailableDrinks.Count; i++)
+    {
+        <div class="menu-item">
+            <h4>@Model.Menu.AvailableDrinks[i].ToString()</h4>
+            <h5>Price: @Model.Menu.AvailableDrinks[i].Price</h5>
+            <h5>Calories: @Model.Menu.AvailableDrinks[i].Calories</h5>
+            <h5>
+                Ingredients:
+                @for (int j = 0; j < @Model.Menu.AvailableDrinks[i].Ingredients.Count; j++)
+                {
+                    <h6>@Model.Menu.AvailableDrinks[i].Ingredients[j]</h6>
+                }
+            </h5>
+        </div>
+    }
 </div>
+
+<h6 class="reallySmallWords">*Prices, Calories, and Ingredients vary depending on selected side and drink. Combo shown has a default side and drink.</h6>
