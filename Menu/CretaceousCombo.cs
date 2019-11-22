@@ -147,7 +147,7 @@ namespace DinoDiner.Menu
         /// <returns></returns>
         public override string ToString()
         {
-            return "Combo";
+            return $"{Entree} Combo";
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return $"{Entree} Combo";
+                return this.ToString();
             }
         }
 

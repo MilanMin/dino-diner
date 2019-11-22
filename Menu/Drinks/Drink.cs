@@ -59,14 +59,5 @@ namespace DinoDiner.Menu
         /// Holds the ice in a drink.
         /// </summary>
         public abstract void HoldIce();
-
-        /// <summary>
-        /// Returns "Drink".
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return "Drink";
-        }
     }
 }

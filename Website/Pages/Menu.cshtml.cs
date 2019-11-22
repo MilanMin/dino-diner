@@ -143,7 +143,14 @@ namespace Website.Pages
             List<IMenuItem> duplicateList = new List<IMenuItem>(results);
             foreach (IMenuItem menuItem in duplicateList)
             {
-                if (!menuCategory.Contains(menuItem.GetType().BaseType.Name))
+                if (menuItem.GetType().Name == "CretaceousCombo")
+                {
+                    if (!menuCategory.Contains(menuItem.GetType().Name)){
+                        results.Remove(menuItem);
+                    }
+                    
+                }
+                else if (!menuCategory.Contains(menuItem.GetType().BaseType.Name))
                 {
                     results.Remove(menuItem);
                 }
