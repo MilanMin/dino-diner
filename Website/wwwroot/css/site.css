@@ -29,5 +29,27 @@ body {
 }
 
 .reallySmallWords{
-    font-size: 1px;
+    font-size: 10px;
+}
+
+#SplitInTwo{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchAndFilterContainer{
+    margin: 5px;
+    border: 1px solid grey;
+    background-color: grey;
 }

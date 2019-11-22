@@ -142,12 +142,12 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Provides the name of the entree in the combo that was chosen.
+        /// Returns "Combo".
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Entree} Combo";
+            return "Combo";
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return this.ToString();
+                return $"{Entree} Combo";
             }
         }
 

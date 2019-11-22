@@ -46,5 +46,14 @@ namespace DinoDiner.Menu
         /// to the Price, Description, and Special properties.
         /// </summary>
         public abstract event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Returns "Side".
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Side";
+        }
     }
 }
