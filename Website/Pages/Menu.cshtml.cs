@@ -17,7 +17,7 @@ namespace Website.Pages
         /// <summary>
         /// Holds all valid menu items.
         /// </summary>
-        private List<IMenuItem> validMenuItems;
+        private IEnumerable<IMenuItem> validMenuItems;
         /// <summary>
         /// Contains valid combos.
         /// </summary>
@@ -75,13 +75,47 @@ namespace Website.Pages
         public void OnPost()
         {
             validMenuItems = Menu.AvailableMenuItems;
+
+            /*
             validMenuItems = Search(validMenuItems, search);
             validMenuItems = MenuCategory(validMenuItems, menuCategory);
             validMenuItems = MinimumPrice(validMenuItems, minimumPrice);
             validMenuItems = MaximumPrice(validMenuItems, maximumPrice);
             validMenuItems = ExcludeIngredient(validMenuItems, excludeIngredient);
+            */
 
-            foreach(IMenuItem menuItem in validMenuItems)
+            if(search != null)
+            {
+                validMenuItems = validMenuItems.Where(menuItem => menuItem.Description.Contains(search, StringComparison.InvariantCultureIgnoreCase));
+            }
+            if(menuCategory.Count != 0)
+            {
+                validMenuItems = validMenuItems.Where(menuItem => menuCategory.Contains(menuItem.GetType().Name) || menuCategory.Contains(menuItem.GetType().BaseType.Name));
+            }
+            if(minimumPrice != null)
+            {
+                validMenuItems = validMenuItems.Where(menuItem => menuItem.Price > minimumPrice);
+            }
+            if(maximumPrice != null)
+            {
+                validMenuItems = validMenuItems.Where(menuItem => menuItem.Price < maximumPrice);
+            }
+            if(excludeIngredient.Count != 0)
+            {
+                validMenuItems = validMenuItems.Where(menuItem =>
+                {
+                    foreach(string ingredient in menuItem.Ingredients)
+                    {
+                        if (excludeIngredient.Contains(ingredient))
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+            }
+
+            foreach (IMenuItem menuItem in validMenuItems)
             {
                 if(menuItem is Entree)
                 {
@@ -103,6 +137,7 @@ namespace Website.Pages
             
         }
 
+        /*
         /// <summary>
         /// Removes menu items from a list that don't contain a search string.
         /// </summary>
@@ -233,5 +268,6 @@ namespace Website.Pages
             }
             return results;
         }
+        */
     }
 }

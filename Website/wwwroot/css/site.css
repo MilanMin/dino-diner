@@ -53,3 +53,16 @@ body {
     border: 1px solid grey;
     background-color: grey;
 }
+
+#ComboDisplay {
+    display: grid;
+    width: 200px;
+    margin: 2px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    border: 1px solid green;
+}
+
+.ComboHeading{
+    font-weight: bold;
+}

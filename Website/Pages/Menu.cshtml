@@ -14,8 +14,38 @@
             {
                 <div class="menu-item">
                     <h4>@Model.ValidCombos[i].Description*</h4>
-                    <h5>Price: @Model.ValidCombos[i].Price</h5>
-                    <h5>Calories: @Model.ValidCombos[i].Calories</h5>
+                    <div id="ComboDisplay">
+                        <div style="grid-column-start: 0; grid-column-end: 1;" class="ComboHeading">Size</div>
+                        <div class="ComboHeading">Price</div>
+                        <div class="ComboHeading">Calories</div>
+                        <div class="Size">Small</div>
+                        @{
+                            if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo)
+                            {
+                                combo.Size = DinoDiner.Menu.Size.Small;
+                            }
+                        }
+                        <div class="Price">@Model.ValidCombos[i].Price</div>
+                        <div class="Calories">@Model.ValidCombos[i].Calories</div>
+                        <div class="Size">Medium</div>
+                        @{
+                            if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo1)
+                            {
+                                combo1.Size = DinoDiner.Menu.Size.Medium;
+                            }
+                        }
+                        <div class="Price">@Model.ValidCombos[i].Price</div>
+                        <div class="Calories">@Model.ValidCombos[i].Calories</div>
+                        <div class="Size">Large</div>
+                        @{
+                            if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo2)
+                            {
+                                combo2.Size = DinoDiner.Menu.Size.Large;
+                            }
+                        }
+                        <div class="Price">@Model.ValidCombos[i].Price</div>
+                        <div class="Calories">@Model.ValidCombos[i].Calories</div>
+                    </div>
                     <h5>
                         Ingredients:
                         @for (int j = 0; j < Model.ValidCombos[i].Ingredients.Count; j++)
