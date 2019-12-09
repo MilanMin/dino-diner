@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Menu";
 }
-
+<link href="normalfile.css?random=@Environment.TickCount" />
 <h1>Menu</h1>
 
 <div id="SplitInTwo">
@@ -14,38 +14,49 @@
             {
                 <div class="menu-item">
                     <h4>@Model.ValidCombos[i].Description*</h4>
-                    <div id="ComboDisplay">
-                        <div style="grid-column-start: 0; grid-column-end: 1;" class="ComboHeading">Size</div>
-                        <div class="ComboHeading">Price</div>
-                        <div class="ComboHeading">Calories</div>
-                        <div class="Size">Small</div>
-                        @{
-                            if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo)
-                            {
-                                combo.Size = DinoDiner.Menu.Size.Small;
+                    <table id="ComboDisplay">
+                        <tr>
+                            <th class="ComboHeading">Size</th>
+                            <th class="ComboHeading">Price</th>
+                            <th class="ComboHeading">Calories</th>
+                        </tr>
+
+                        <tr>
+                            <th class="Size">Small</th>
+                            @{
+                                if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo)
+                                {
+                                    combo.Size = DinoDiner.Menu.Size.Small;
+                                }
                             }
-                        }
-                        <div class="Price">@Model.ValidCombos[i].Price</div>
-                        <div class="Calories">@Model.ValidCombos[i].Calories</div>
-                        <div class="Size">Medium</div>
-                        @{
-                            if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo1)
-                            {
-                                combo1.Size = DinoDiner.Menu.Size.Medium;
+                            <th class="Price">@Model.ValidCombos[i].Price</th>
+                            <th class="Calories">@Model.ValidCombos[i].Calories</th>
+                        </tr>
+
+                        <tr>
+                            <th class="Size">Medium</th>
+                            @{
+                                if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo1)
+                                {
+                                    combo1.Size = DinoDiner.Menu.Size.Medium;
+                                }
                             }
-                        }
-                        <div class="Price">@Model.ValidCombos[i].Price</div>
-                        <div class="Calories">@Model.ValidCombos[i].Calories</div>
-                        <div class="Size">Large</div>
-                        @{
-                            if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo2)
-                            {
-                                combo2.Size = DinoDiner.Menu.Size.Large;
+                            <th class="Price">@Model.ValidCombos[i].Price</th>
+                            <th class="Calories">@Model.ValidCombos[i].Calories</th>
+                        </tr>
+
+                        <tr>
+                            <th class="Size">Large</th>
+                            @{
+                                if (Model.ValidCombos[i] is DinoDiner.Menu.CretaceousCombo combo2)
+                                {
+                                    combo2.Size = DinoDiner.Menu.Size.Large;
+                                }
                             }
-                        }
-                        <div class="Price">@Model.ValidCombos[i].Price</div>
-                        <div class="Calories">@Model.ValidCombos[i].Calories</div>
-                    </div>
+                            <th class="Price">@Model.ValidCombos[i].Price</th>
+                            <th class="Calories">@Model.ValidCombos[i].Calories</th>
+                        </tr>
+                    </table>
                     <h5>
                         Ingredients:
                         @for (int j = 0; j < Model.ValidCombos[i].Ingredients.Count; j++)

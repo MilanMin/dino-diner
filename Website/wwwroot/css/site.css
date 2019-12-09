@@ -55,14 +55,17 @@ body {
 }
 
 #ComboDisplay {
-    display: grid;
+    display: table;
+    
     width: 200px;
-    margin: 2px;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto auto;
+    margin: 1px;
     border: 1px solid green;
 }
 
-.ComboHeading{
+.ComboHeading {
     font-weight: bold;
+}
+
+.ComboHeading, .Size, .Price, .Calories{
+    border: 1px solid green;
 }
