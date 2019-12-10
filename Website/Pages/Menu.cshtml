@@ -14,7 +14,7 @@
             {
                 <div class="menu-item">
                     <h4>@Model.ValidCombos[i].Description*</h4>
-                    <table id="ComboDisplay">
+                    <table class="Display">
                         <tr>
                             <th class="ComboHeading">Size</th>
                             <th class="ComboHeading">Price</th>
@@ -94,8 +94,46 @@
             {
                 <div class="menu-item">
                     <h4>@Model.ValidSides[i].Description</h4>
-                    <h5>Price: @Model.ValidSides[i].Price</h5>
-                    <h5>Calories: @Model.ValidSides[i].Calories</h5>
+                    <table class="Display">
+                        <tr>
+                            <th class="ComboHeading">Size</th>
+                            <th class="ComboHeading">Price</th>
+                            <th class="ComboHeading">Calories</th>
+                        </tr>
+                        <tr>
+                            <th class="Size">Small</th>
+                            @{
+                                if (Model.ValidSides[i] is DinoDiner.Menu.Side side)
+                                {
+                                    side.Size = DinoDiner.Menu.Size.Small;
+                                }
+                            }
+                            <th class="Price">@Model.ValidSides[i].Price</th>
+                            <th class="Calories">@Model.ValidSides[i].Calories</th>
+                        </tr>
+                        <tr>
+                            <th class="Size">Medium</th>
+                            @{
+                                if (Model.ValidSides[i] is DinoDiner.Menu.Side side1)
+                                {
+                                    side1.Size = DinoDiner.Menu.Size.Medium;
+                                }
+                            }
+                            <th class="Price">@Model.ValidSides[i].Price</th>
+                            <th class="Calories">@Model.ValidSides[i].Calories</th>
+                        </tr>
+                        <tr>
+                            <th class="Size">Large</th>
+                            @{
+                                if (Model.ValidSides[i] is DinoDiner.Menu.Side side2)
+                                {
+                                    side2.Size = DinoDiner.Menu.Size.Large;
+                                }
+                            }
+                            <th class="Price">@Model.ValidSides[i].Price</th>
+                            <th class="Calories">@Model.ValidSides[i].Calories</th>
+                        </tr>
+                    </table>
                     <h5>
                         Ingredients:
                         @for (int j = 0; j < Model.ValidSides[i].Ingredients.Count; j++)
@@ -111,18 +149,56 @@
         <div id="container">
             @for (int i = 0; i < Model.ValidDrinks.Count; i++)
             {
-                <div class="menu-item">
-                    <h4>@Model.ValidDrinks[i].Description</h4>
-                    <h5>Price: @Model.ValidDrinks[i].Price</h5>
-                    <h5>Calories: @Model.ValidDrinks[i].Calories</h5>
-                    <h5>
-                        Ingredients:
-                        @for (int j = 0; j < @Model.ValidDrinks[i].Ingredients.Count; j++)
-                        {
-                            <h6>@Model.ValidDrinks[i].Ingredients[j]</h6>
+            <div class="menu-item">
+                <h4>@Model.ValidDrinks[i].Description</h4>
+                <table class="Display">
+                    <tr>
+                        <th class="ComboHeading">Size</th>
+                        <th class="ComboHeading">Price</th>
+                        <th class="ComboHeading">Calories</th>
+                    </tr>
+                    <tr>
+                        <th class="Size">Small</th>
+                        @{
+                            if (Model.ValidDrinks[i] is DinoDiner.Menu.Drink drink)
+                            {
+                                drink.Size = DinoDiner.Menu.Size.Small;
+                            }
                         }
-                    </h5>
-                </div>
+                        <th class="Price">@Model.ValidDrinks[i].Price</th>
+                        <th class="Calories">@Model.ValidDrinks[i].Calories</th>
+                    </tr>
+                    <tr>
+                        <th class="Size">Medium</th>
+                        @{
+                            if (Model.ValidDrinks[i] is DinoDiner.Menu.Drink drink1)
+                            {
+                                drink1.Size = DinoDiner.Menu.Size.Medium;
+                            }
+                        }
+                        <th class="Price">@Model.ValidDrinks[i].Price</th>
+                        <th class="Calories">@Model.ValidDrinks[i].Calories</th>
+                    </tr>
+                    <tr>
+                        <th class="Size">Large</th>
+                        @{
+                            if (Model.ValidDrinks[i] is DinoDiner.Menu.Drink drink2)
+                            {
+                                drink2.Size = DinoDiner.Menu.Size.Large;
+                            }
+                        }
+                        <th class="Price">@Model.ValidDrinks[i].Price</th>
+                        <th class="Calories">@Model.ValidDrinks[i].Calories</th>
+                    </tr>
+                </table>
+                <h5>
+                    Ingredients:
+                    @for (int j = 0; j < @Model.ValidDrinks[i].Ingredients.Count; j++)
+                    {
+                        <h6>@Model.ValidDrinks[i].Ingredients[j]</h6>
+                    }
+                </h5>
+            </div>
             }
         </div>
 

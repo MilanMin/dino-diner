@@ -54,7 +54,7 @@ body {
     background-color: grey;
 }
 
-#ComboDisplay {
+.Display {
     display: table;
     
     width: 200px;
@@ -68,4 +68,17 @@ body {
 
 .ComboHeading, .Size, .Price, .Calories{
     border: 1px solid green;
+}
+
+.Calories{
+    font-weight: normal;
+    color: orange;
+}
+
+.Price{
+
+}
+
+.Size{
+    font-weight: normal;
 }
